@@ -7,7 +7,7 @@ import (
 )
 
 func ProfileRoutes(app *fiber.App){
-	profile := app.Group("profile")
+	profile := app.Group("/")
 
 	profile.Get("/checkprofile/:uid", handler.CheckProfile)
 	profile.Get("/profile/:uid", handler.GetProfile)
