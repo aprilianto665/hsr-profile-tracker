@@ -7,5 +7,4 @@ func ProfileRoutes(app *fiber.App){
 
 	profile.Get("/checkprofile/:uid", func (ctx *fiber.Ctx) error {})
 	profile.Get("/profile/:uid", func (ctx *fiber.Ctx) error {})
-
 }
