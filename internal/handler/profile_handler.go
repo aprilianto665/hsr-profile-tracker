@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
+	"hsr-profile-tracker/internal/model"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -38,13 +39,17 @@ func GetProfile(ctx *fiber.Ctx) error {
 		return ctx.Status(statusCode).Send(body)
 	}
 
-	var data interface{}
-	if err := json.Unmarshal(body, &data); err != nil {
+	var resp model.MihomoProfileResponse
+	if err := json.Unmarshal(body, &resp); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"status": "error",
 			"message": "failed to parse response",
 		})
 	}
 
-	return ctx.Status(statusCode).JSON(data)
+	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
+		Status:  "success",
+		Message: "profile fetched successfully",
+		Data:    resp.Player,
+	})
 }
