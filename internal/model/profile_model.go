@@ -43,3 +43,9 @@ type APIProfileResponse struct {
     Message string `json:"message"`
     Data    Player `json:"data"`
 }
+
+type CheckProfileResponse struct {
+	Status  string `json:"status"`
+	Message string `json:"message"`
+	Exists  bool   `json:"exists"`
+}

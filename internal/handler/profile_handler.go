@@ -10,7 +10,41 @@ import (
 )
 
 func CheckProfile(ctx *fiber.Ctx) error {
-	return ctx.SendString("Check Profile")
+	uid := ctx.Params("uid")
+
+	if uid == "" {
+		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"status": "error",
+			"message": "uid is required",
+		})
+	}
+
+	url := fmt.Sprintf("https://api.mihomo.me/sr_info_parsed/%s?lang=en",uid)
+
+	agent := fiber.Get(url).UserAgent("hsr-profile-tracker/1.0").Timeout(10 * time.Second)
+
+	statusCode, _, errs := agent.Bytes()
+	if len(errs) > 0 {
+		return ctx.Status(fiber.StatusBadGateway).JSON(model.CheckProfileResponse{
+			Status: "error",
+			Message: "failed to fetch from Mihomo",
+			Exists: false,
+		})
+	}
+
+	if statusCode < 200 || statusCode >= 300 {
+		return ctx.Status(statusCode).JSON(model.CheckProfileResponse{
+			Status: "error",
+			Message: "profile not found",
+			Exists: false,
+		})
+	}
+
+	return ctx.Status(statusCode).JSON(model.CheckProfileResponse{
+		Status: "success",
+		Message: "profile exists",
+		Exists: true,
+	})
 }
 
 func GetProfile(ctx *fiber.Ctx) error {
