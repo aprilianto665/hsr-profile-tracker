@@ -5,15 +5,7 @@ type AvatarInfo struct {
 	Icon string `json:"icon"`
 }
 
-type MemoryInfo struct {
-	Level          int  `json:"level"`
-	ChaosID        *int `json:"chaos_id,omitempty"`
-	ChaosLevel     *int `json:"chaos_level,omitempty"`
-	ChaosStarCount *int `json:"chaos_star_count,omitempty"`
-}
-
 type SpaceInfo struct {
-	MemoryData       *MemoryInfo `json:"memory_data,omitempty"`
 	UniverseLevel    int         `json:"universe_level"`
 	AvatarCount      int         `json:"avatar_count"`
 	LightConeCount   int         `json:"light_cone_count"`
