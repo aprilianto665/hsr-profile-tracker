@@ -81,6 +81,13 @@ func GetProfile(ctx *fiber.Ctx) error {
 		})
 	}
 
+	NormalizeIconPath := func (path *string) {
+		const BaseIconURL = "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/"
+    	*path = BaseIconURL + *path
+	}
+
+	NormalizeIconPath(&resp.Player.Avatar.Icon)
+
 	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
 		Status:  "success",
 		Message: "profile fetched successfully",
