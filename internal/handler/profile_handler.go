@@ -73,7 +73,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 		return ctx.Status(statusCode).Send(body)
 	}
 
-	var resp model.MihomoProfileResponse
+	var resp model.RawData
 	if err := json.Unmarshal(body, &resp); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"status": "error",
@@ -91,6 +91,9 @@ func GetProfile(ctx *fiber.Ctx) error {
 	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
 		Status:  "success",
 		Message: "profile fetched successfully",
-		Data:    resp.Player,
+		Data:    model.RawData{
+			Player: resp.Player,
+			Characters: resp.Characters,
+		},
 	})
 }

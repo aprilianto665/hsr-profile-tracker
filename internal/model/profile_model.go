@@ -1,5 +1,13 @@
 package model
 
+type Characters struct {
+	Name      string `json:"name"`
+	Portrait   string `json:"portrait"`
+    Rarity    int    `json:"rarity"`
+	Rank      int    `json:"rank"`
+	Level     int    `json:"level"`
+}
+
 type AvatarInfo struct {
 	Name string `json:"name"`
 	Icon string `json:"icon"`
@@ -16,28 +24,17 @@ type SpaceInfo struct {
 }
 
 type Player struct {
-	UID      	string 		`json:"uid"`
-	Nickname 	string 		`json:"nickname"`
-	Level    	int    		`json:"level"`
-	WorldLevel 	int  		`json:"world_level"`
-	Friends 	int 		`json:"friend_count"`
-	Signature 	string 		`json:"signature"`
-	Avatar		*AvatarInfo	`json:"avatar"`
-	SpaceInfo	*SpaceInfo	`json:"space_info"`
+	UID      	string 			`json:"uid"`
+	Nickname 	string 			`json:"nickname"`
+	Level    	int    			`json:"level"`
+	WorldLevel 	int  			`json:"world_level"`
+	Friends 	int 			`json:"friend_count"`
+	Signature 	string 			`json:"signature"`
+	Avatar		*AvatarInfo		`json:"avatar"`
+	SpaceInfo	*SpaceInfo		`json:"space_info"`
 }
 
-type MihomoProfileResponse struct {
-	Player	Player `json:"player"`
-}
-
-type APIProfileResponse struct {
-    Status  string `json:"status"`
-    Message string `json:"message"`
-    Data    Player `json:"data"`
-}
-
-type CheckProfileResponse struct {
-	Status  string `json:"status"`
-	Message string `json:"message"`
-	Exists  bool   `json:"exists"`
+type RawData struct {
+	Player	    Player          `json:"player"`
+	Characters	[]Characters	`json:"characters"`
 }
