@@ -1,10 +1,26 @@
 package model
 
-type LightConeAttribute struct {
+type RelicSet struct {
+    Name string `json:"name"`
+    Icon string `json:"icon"`
+    Num  int    `json:"num"`
+}
+
+type Attribute struct {
     Name    string  `json:"name"`
     Icon    string  `json:"icon"`
     Value   float64 `json:"value"`
     Percent bool    `json:"percent"` 
+}
+
+type Relic struct {
+    Name       string      `json:"name"`
+    Type       int         `json:"type"`
+    Rarity     int         `json:"rarity"`
+    Level      int         `json:"level"`
+    Icon       string      `json:"icon"`
+    MainAffix  *Attribute  `json:"main_affix"`
+    SubAffix   []Attribute `json:"sub_affix"`
 }
 
 type LightCone struct {
@@ -13,7 +29,7 @@ type LightCone struct {
     Rank       int    `json:"rank"`
     Level      int    `json:"level"`
     Icon       string `json:"icon"`
-    Attributes []LightConeAttribute `json:"attributes"`
+    Attributes []Attribute `json:"attributes"`
 }
 
 type NameIcon struct {
@@ -30,6 +46,8 @@ type Character struct {
     Path      *NameIcon  `json:"path"`
     Element   *NameIcon  `json:"element"`
     LightCone *LightCone `json:"light_cone"`
+    Relics    []Relic    `json:"relics"`
+    RelicSets  []RelicSet  `json:"relic_sets"`
 }
 
 
