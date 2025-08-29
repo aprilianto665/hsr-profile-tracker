@@ -88,6 +88,10 @@ func GetProfile(ctx *fiber.Ctx) error {
 
 	NormalizeIconPath(&resp.Player.Avatar.Icon)
 
+	for i := range resp.Characters {
+		NormalizeIconPath(&resp.Characters[i].Portrait)
+	}
+
 	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
 		Status:  "success",
 		Message: "profile fetched successfully",

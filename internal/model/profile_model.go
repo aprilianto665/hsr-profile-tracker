@@ -1,17 +1,37 @@
 package model
 
-type Characters struct {
-	Name      string `json:"name"`
-	Portrait   string `json:"portrait"`
-    Rarity    int    `json:"rarity"`
-	Rank      int    `json:"rank"`
-	Level     int    `json:"level"`
+type LightConeAttribute struct {
+    Name    string  `json:"name"`
+    Icon    string  `json:"icon"`
+    Value   float64 `json:"value"`
+    Percent bool    `json:"percent"` 
 }
 
-type AvatarInfo struct {
+type LightCone struct {
+    Name       string `json:"name"`
+    Rarity     int    `json:"rarity"`
+    Rank       int    `json:"rank"`
+    Level      int    `json:"level"`
+    Icon       string `json:"icon"`
+    Attributes []LightConeAttribute `json:"attributes"`
+}
+
+type NameIcon struct {
 	Name string `json:"name"`
 	Icon string `json:"icon"`
 }
+
+type Character struct {
+	Name      string     `json:"name"`
+	Portrait  string     `json:"portrait"`
+    Rarity    int        `json:"rarity"`
+	Rank      int        `json:"rank"`
+	Level     int        `json:"level"`
+    Path      *NameIcon  `json:"path"`
+    Element   *NameIcon  `json:"element"`
+    LightCone *LightCone `json:"light_cone"`
+}
+
 
 type SpaceInfo struct {
 	UniverseLevel    int         `json:"universe_level"`
@@ -30,11 +50,11 @@ type Player struct {
 	WorldLevel 	int  			`json:"world_level"`
 	Friends 	int 			`json:"friend_count"`
 	Signature 	string 			`json:"signature"`
-	Avatar		*AvatarInfo		`json:"avatar"`
+	Avatar		*NameIcon		`json:"avatar"`
 	SpaceInfo	*SpaceInfo		`json:"space_info"`
 }
 
 type RawData struct {
 	Player	    Player          `json:"player"`
-	Characters	[]Characters	`json:"characters"`
+	Characters	[]Character	    `json:"characters"`
 }
