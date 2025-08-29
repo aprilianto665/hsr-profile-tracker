@@ -38,16 +38,18 @@ type NameIcon struct {
 }
 
 type Character struct {
-	Name      string     `json:"name"`
-	Portrait  string     `json:"portrait"`
-    Rarity    int        `json:"rarity"`
-	Rank      int        `json:"rank"`
-	Level     int        `json:"level"`
-    Path      *NameIcon  `json:"path"`
-    Element   *NameIcon  `json:"element"`
-    LightCone *LightCone `json:"light_cone"`
-    Relics    []Relic    `json:"relics"`
-    RelicSets  []RelicSet  `json:"relic_sets"`
+	Name        string      `json:"name"`
+	Portrait    string      `json:"portrait"`
+    Rarity      int         `json:"rarity"`
+	Rank        int         `json:"rank"`
+	Level       int         `json:"level"`
+    Path        *NameIcon   `json:"path"`
+    Element     *NameIcon   `json:"element"`
+    LightCone   *LightCone  `json:"light_cone"`
+    Relics      []Relic     `json:"relics"`
+    RelicSets   []RelicSet  `json:"relic_sets"`
+    Attributes  []Attribute `json:"attributes"`
+    Additions   []Attribute `json:"additions"`
 }
 
 
