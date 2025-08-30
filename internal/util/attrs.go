@@ -33,7 +33,7 @@ func FormatAttributeValue(attr model.Attribute) string {
 func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
 	main := model.AttributeSummary{
 		Name:  r.MainAffix.Name,
-		Icon:  r.MainAffix.Icon,
+		Icon:  NormalizeIconPath(r.MainAffix.Icon),
 		Value: FormatAttributeValue(*r.MainAffix),
 	}
 
@@ -41,7 +41,7 @@ func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
 	for _, s := range r.SubAffix {
 		subs = append(subs, model.AttributeSummary{
 			Name:  s.Name,
-			Icon:  s.Icon,
+			Icon:  NormalizeIconPath(s.Icon),
 			Value: FormatAttributeValue(s),
 		})
 	}
@@ -49,7 +49,7 @@ func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
 	return model.RelicSummary{
 		Name:      r.Name,
 		Type:      r.Type,
-		Icon:      r.Icon,
+		Icon:      NormalizeIconPath(r.Icon),
 		Rarity:    r.Rarity,
 		Level:     r.Level,
 		MainAffix: &main,

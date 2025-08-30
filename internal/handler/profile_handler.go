@@ -82,21 +82,20 @@ func GetProfile(ctx *fiber.Ctx) error {
 		})
 	}
 
-	util.NormalizeIconPath(&RawData.Player.Avatar.Icon)
-
-	for i := range RawData.Characters {
-		util.NormalizeIconPath(&RawData.Characters[i].Portrait)
-	}
+	player := util.NormalizePlayerAvatar(RawData.Player)
 
 	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
 	for _, c := range RawData.Characters {
+
+		c.Path.Icon = util.NormalizeIconPath(c.Path.Icon)
+		c.Element.Icon = util.NormalizeIconPath(c.Element.Icon)
 
 		formattedLightConeStats := make([]model.AttributeSummary, 0, len(c.LightCone.Attributes))
 
 		for _, lc := range c.LightCone.Attributes {
 			formattedLightConeStats = append(formattedLightConeStats, model.AttributeSummary{
 				Name:  lc.Name,
-				Icon:  lc.Icon,
+				Icon:  util.NormalizeIconPath(lc.Icon),
 				Value: util.FormatAttributeValue(lc),
 			})
 		}
@@ -106,13 +105,12 @@ func GetProfile(ctx *fiber.Ctx) error {
 			Rarity:     c.LightCone.Rarity,
 			Rank:       c.LightCone.Rank,
 			Level:      c.LightCone.Level,
-			Icon:       c.LightCone.Icon,
+			Icon:       util.NormalizeIconPath(c.LightCone.Icon),
 			Attributes: formattedLightConeStats,
 		}
 
 		formattedRelicStats := make([]model.RelicSummary, 0, len(c.Relics))
 		for _, r := range c.Relics {
-			util.NormalizeIconPath(&r.Icon)
 			formattedRelicStats = append(formattedRelicStats, util.BuildRelicSummaryOut(r))
 		}
 
@@ -122,14 +120,14 @@ func GetProfile(ctx *fiber.Ctx) error {
 		for _, fs := range finalStats {
 			formattedStats = append(formattedStats, model.AttributeSummary{
 				Name:  fs.Name,
-				Icon:  fs.Icon,
+				Icon:  util.NormalizeIconPath(fs.Icon),
 				Value: util.FormatAttributeValue(fs),
 			})
 		}
 
 		chars = append(chars, model.CharacterSummary{
 			Name:       c.Name,
-			Portrait:   c.Portrait,
+			Portrait:   util.NormalizeIconPath(c.Portrait),
 			Rarity:     c.Rarity,
 			Rank:       c.Rank,
 			Level:      c.Level,
@@ -147,7 +145,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 		Status:  "success",
 		Message: "Profile fetched successfully",
 		Data: model.ProfileSummary{
-			Player:     RawData.Player,
+			Player:     player,
 			Characters: chars,
 		},
 	})
