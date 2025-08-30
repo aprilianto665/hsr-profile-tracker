@@ -73,8 +73,8 @@ func GetProfile(ctx *fiber.Ctx) error {
 		return ctx.Status(statusCode).Send(body)
 	}
 
-	var resp model.RawData
-	if err := json.Unmarshal(body, &resp); err != nil {
+	var RawData model.RawData
+	if err := json.Unmarshal(body, &RawData); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"status": "error",
 			"message": "Failed to parse server response",
@@ -86,18 +86,56 @@ func GetProfile(ctx *fiber.Ctx) error {
     	*path = BaseIconURL + *path
 	}
 
-	NormalizeIconPath(&resp.Player.Avatar.Icon)
+	NormalizeIconPath(&RawData.Player.Avatar.Icon)
 
-	for i := range resp.Characters {
-		NormalizeIconPath(&resp.Characters[i].Portrait)
+	for i := range RawData.Characters {
+		NormalizeIconPath(&RawData.Characters[i].Portrait)
 	}
+
+	mergeAttributes := func(attrs, adds []model.Attribute) []model.Attribute {
+		final := make([]model.Attribute, len(attrs))
+		copy(final, attrs)
+		idx := make(map[string]int, len(final))
+		for i, a := range final {
+			idx[a.Name] = i
+		}
+		for _, add := range adds {
+			if i, ok := idx[add.Name]; ok {
+				final[i].Value += add.Value
+			} else {
+				idx[add.Name] = len(final)
+				final = append(final, add)
+			}
+		}
+		return final
+	}
+
+
+	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
+	for _, c := range RawData.Characters {
+		finalStats := mergeAttributes(c.Attributes, c.Additions)
+    	chars = append(chars, model.CharacterSummary{
+   	    	Name:       c.Name,
+    		Portrait:   c.Portrait,
+        	Rarity:     c.Rarity,
+        	Rank:       c.Rank,
+        	Level:      c.Level,
+        	Path:       c.Path,
+        	Element:    c.Element,
+        	LightCone:  c.LightCone,
+        	Relics:     c.Relics,
+        	RelicSets:  c.RelicSets,
+        	FinalStats: finalStats,
+        	RelicScore: nil,
+    })
+}
 
 	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
 		Status:  "success",
 		Message: "Profile fetched successfully",
-		Data:    model.RawData{
-			Player: resp.Player,
-			Characters: resp.Characters,
+		Data:    model.ProfileSummary{
+			Player:     RawData.Player,
+			Characters: chars,
 		},
 	})
 }
