@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"hsr-profile-tracker/internal/model"
 )
 
@@ -20,4 +21,38 @@ func MergeAttributes(attrs, adds []model.Attribute) []model.Attribute {
 		}
 	}
 	return final
+}
+
+func FormatAttributeValue(attr model.Attribute) string {
+	if attr.Percent {
+		return fmt.Sprintf("%.1f%%", attr.Value*100)
+	}
+	return fmt.Sprintf("%d", int(attr.Value))
+}
+
+func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
+	main := model.AttributeSummary{
+		Name:  r.MainAffix.Name,
+		Icon:  r.MainAffix.Icon,
+		Value: FormatAttributeValue(*r.MainAffix),
+	}
+
+	subs := make([]model.AttributeSummary, 0, len(r.SubAffix))
+	for _, s := range r.SubAffix {
+		subs = append(subs, model.AttributeSummary{
+			Name:  s.Name,
+			Icon:  s.Icon,
+			Value: FormatAttributeValue(s),
+		})
+	}
+
+	return model.RelicSummary{
+		Name:      r.Name,
+		Type:      r.Type,
+		Icon:      r.Icon,
+		Rarity:    r.Rarity,
+		Level:     r.Level,
+		MainAffix: &main,
+		SubAffix:  subs,
+	}
 }

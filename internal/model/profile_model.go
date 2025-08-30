@@ -84,19 +84,35 @@ type RelicScore struct {
 	SetBonus  float64 `json:"set_bonus"`
 }
 
+type AttributeSummary struct {
+	Name  string `json:"name"`
+	Icon  string `json:"icon"`
+	Value string `json:"value"`
+}
+
+type RelicSummary struct {
+	Name      string             `json:"name"`
+	Type      int                `json:"type"`
+	Rarity    int                `json:"rarity"`
+	Level     int                `json:"level"`
+	Icon      string             `json:"icon"`
+	MainAffix *AttributeSummary  `json:"main_affix"`
+	SubAffix  []AttributeSummary `json:"sub_affix"`
+}
+
 type CharacterSummary struct {
-	Name       string      `json:"name"`
-	Portrait   string      `json:"portrait"`
-	Rarity     int         `json:"rarity"`
-	Rank       int         `json:"rank"`
-	Level      int         `json:"level"`
-	Path       *NameIcon   `json:"path"`
-	Element    *NameIcon   `json:"element"`
-	LightCone  *LightCone  `json:"light_cone"`
-	Relics     []Relic     `json:"relics"`
-	RelicSets  []RelicSet  `json:"relic_sets"`
-	FinalStats []Attribute `json:"final_stats"`
-	RelicScore *RelicScore `json:"relic_score"`
+	Name       string             `json:"name"`
+	Portrait   string             `json:"portrait"`
+	Rarity     int                `json:"rarity"`
+	Rank       int                `json:"rank"`
+	Level      int                `json:"level"`
+	Path       *NameIcon          `json:"path"`
+	Element    *NameIcon          `json:"element"`
+	LightCone  *LightCone         `json:"light_cone"`
+	Relics     []RelicSummary     `json:"relics"`
+	RelicSets  []RelicSet         `json:"relic_sets"`
+	FinalStats []AttributeSummary `json:"final_stats"`
+	RelicScore *RelicScore        `json:"relic_score"`
 }
 
 type ProfileSummary struct {

@@ -90,7 +90,24 @@ func GetProfile(ctx *fiber.Ctx) error {
 
 	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
 	for _, c := range RawData.Characters {
+
+		formattedRelicStats := make([]model.RelicSummary, 0, len(c.Relics))
+		for _, r := range c.Relics {
+			util.NormalizeIconPath(&r.Icon)
+			formattedRelicStats = append(formattedRelicStats, util.BuildRelicSummaryOut(r))
+		}
+
 		finalStats := util.MergeAttributes(c.Attributes, c.Additions)
+		formattedStats := make([]model.AttributeSummary, 0, len(finalStats))
+
+		for _, fs := range finalStats {
+			formattedStats = append(formattedStats, model.AttributeSummary{
+				Name:  fs.Name,
+				Icon:  fs.Icon,
+				Value: util.FormatAttributeValue(fs),
+			})
+		}
+
 		chars = append(chars, model.CharacterSummary{
 			Name:       c.Name,
 			Portrait:   c.Portrait,
@@ -100,9 +117,9 @@ func GetProfile(ctx *fiber.Ctx) error {
 			Path:       c.Path,
 			Element:    c.Element,
 			LightCone:  c.LightCone,
-			Relics:     c.Relics,
+			Relics:     formattedRelicStats,
 			RelicSets:  c.RelicSets,
-			FinalStats: finalStats,
+			FinalStats: formattedStats,
 			RelicScore: nil,
 		})
 	}
