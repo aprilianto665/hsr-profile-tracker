@@ -100,6 +100,15 @@ type RelicSummary struct {
 	SubAffix  []AttributeSummary `json:"sub_affix"`
 }
 
+type LightConeSummary struct {
+	Name       string             `json:"name"`
+	Rarity     int                `json:"rarity"`
+	Rank       int                `json:"rank"`
+	Level      int                `json:"level"`
+	Icon       string             `json:"icon"`
+	Attributes []AttributeSummary `json:"attributes"`
+}
+
 type CharacterSummary struct {
 	Name       string             `json:"name"`
 	Portrait   string             `json:"portrait"`
@@ -108,7 +117,7 @@ type CharacterSummary struct {
 	Level      int                `json:"level"`
 	Path       *NameIcon          `json:"path"`
 	Element    *NameIcon          `json:"element"`
-	LightCone  *LightCone         `json:"light_cone"`
+	LightCone  *LightConeSummary  `json:"light_cone"`
 	Relics     []RelicSummary     `json:"relics"`
 	RelicSets  []RelicSet         `json:"relic_sets"`
 	FinalStats []AttributeSummary `json:"final_stats"`

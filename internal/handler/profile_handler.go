@@ -91,6 +91,25 @@ func GetProfile(ctx *fiber.Ctx) error {
 	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
 	for _, c := range RawData.Characters {
 
+		formattedLightConeStats := make([]model.AttributeSummary, 0, len(c.LightCone.Attributes))
+
+		for _, lc := range c.LightCone.Attributes {
+			formattedLightConeStats = append(formattedLightConeStats, model.AttributeSummary{
+				Name:  lc.Name,
+				Icon:  lc.Icon,
+				Value: util.FormatAttributeValue(lc),
+			})
+		}
+
+		formattedLightCone := model.LightConeSummary{
+			Name:       c.LightCone.Name,
+			Rarity:     c.LightCone.Rarity,
+			Rank:       c.LightCone.Rank,
+			Level:      c.LightCone.Level,
+			Icon:       c.LightCone.Icon,
+			Attributes: formattedLightConeStats,
+		}
+
 		formattedRelicStats := make([]model.RelicSummary, 0, len(c.Relics))
 		for _, r := range c.Relics {
 			util.NormalizeIconPath(&r.Icon)
@@ -116,7 +135,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 			Level:      c.Level,
 			Path:       c.Path,
 			Element:    c.Element,
-			LightCone:  c.LightCone,
+			LightCone:  &formattedLightCone,
 			Relics:     formattedRelicStats,
 			RelicSets:  c.RelicSets,
 			FinalStats: formattedStats,
