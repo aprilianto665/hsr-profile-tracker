@@ -77,3 +77,16 @@ func BuildLightConeSummaryOut(lc *model.LightCone) *model.LightConeSummary {
 		Attributes: attrs,
 	}
 }
+
+func BuildFinalStatsOut(attrs, adds []model.Attribute) []model.AttributeSummary {
+	final := MergeAttributes(attrs, adds)
+	out := make([]model.AttributeSummary, 0, len(final))
+	for _, fs := range final {
+		out = append(out, model.AttributeSummary{
+			Name:  fs.Name,
+			Icon:  NormalizeIconPath(fs.Icon),
+			Value: FormatAttributeValue(fs),
+		})
+	}
+	return out
+}
