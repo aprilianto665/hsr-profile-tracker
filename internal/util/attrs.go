@@ -56,3 +56,24 @@ func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
 		SubAffix:  subs,
 	}
 }
+
+func BuildLightConeSummaryOut(lc *model.LightCone) *model.LightConeSummary {
+
+	attrs := make([]model.AttributeSummary, 0, len(lc.Attributes))
+	for _, a := range lc.Attributes {
+		attrs = append(attrs, model.AttributeSummary{
+			Name:  a.Name,
+			Icon:  NormalizeIconPath(a.Icon),
+			Value: FormatAttributeValue(a),
+		})
+	}
+
+	return &model.LightConeSummary{
+		Name:       lc.Name,
+		Rarity:     lc.Rarity,
+		Rank:       lc.Rank,
+		Level:      lc.Level,
+		Icon:       NormalizeIconPath(lc.Icon),
+		Attributes: attrs,
+	}
+}

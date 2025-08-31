@@ -90,24 +90,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 		c.Path.Icon = util.NormalizeIconPath(c.Path.Icon)
 		c.Element.Icon = util.NormalizeIconPath(c.Element.Icon)
 
-		formattedLightConeStats := make([]model.AttributeSummary, 0, len(c.LightCone.Attributes))
-
-		for _, lc := range c.LightCone.Attributes {
-			formattedLightConeStats = append(formattedLightConeStats, model.AttributeSummary{
-				Name:  lc.Name,
-				Icon:  util.NormalizeIconPath(lc.Icon),
-				Value: util.FormatAttributeValue(lc),
-			})
-		}
-
-		formattedLightCone := model.LightConeSummary{
-			Name:       c.LightCone.Name,
-			Rarity:     c.LightCone.Rarity,
-			Rank:       c.LightCone.Rank,
-			Level:      c.LightCone.Level,
-			Icon:       util.NormalizeIconPath(c.LightCone.Icon),
-			Attributes: formattedLightConeStats,
-		}
+		lc := util.BuildLightConeSummaryOut(c.LightCone)
 
 		formattedRelicStats := make([]model.RelicSummary, 0, len(c.Relics))
 		for _, r := range c.Relics {
@@ -133,7 +116,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 			Level:      c.Level,
 			Path:       c.Path,
 			Element:    c.Element,
-			LightCone:  &formattedLightCone,
+			LightCone:  lc,
 			Relics:     formattedRelicStats,
 			RelicSets:  c.RelicSets,
 			FinalStats: formattedStats,
