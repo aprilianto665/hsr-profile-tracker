@@ -98,6 +98,8 @@ func GetProfile(ctx *fiber.Ctx) error {
 			relics = append(relics, util.BuildRelicSummaryOut(r))
 		}
 
+		relicSets := util.NormalizeRelicSetIcons(c.RelicSets)
+
 		finalStats := util.BuildFinalStatsOut(c.Attributes, c.Additions)
 
 		chars = append(chars, model.CharacterSummary{
@@ -110,7 +112,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 			Element:    c.Element,
 			LightCone:  lc,
 			Relics:     relics,
-			RelicSets:  c.RelicSets,
+			RelicSets:  relicSets,
 			FinalStats: finalStats,
 			RelicScore: nil,
 		})

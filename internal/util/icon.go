@@ -12,3 +12,10 @@ func NormalizePlayerAvatar(p model.Player) model.Player {
 	p.Avatar.Icon = NormalizeIconPath(p.Avatar.Icon)
 	return p
 }
+
+func NormalizeRelicSetIcons(sets []model.RelicSet) []model.RelicSet {
+	for i := range sets {
+		sets[i].Icon = NormalizeIconPath(sets[i].Icon)
+	}
+	return sets
+}

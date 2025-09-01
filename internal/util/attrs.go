@@ -58,6 +58,9 @@ func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
 }
 
 func BuildLightConeSummaryOut(lc *model.LightCone) *model.LightConeSummary {
+	if lc == nil {
+		return nil
+	}
 
 	attrs := make([]model.AttributeSummary, 0, len(lc.Attributes))
 	for _, a := range lc.Attributes {
