@@ -63,6 +63,7 @@ func CheckProfile(ctx *fiber.Ctx) error {
 
 func GetProfile(ctx *fiber.Ctx) error {
 	uid := ctx.Params("uid")
+	refresh := ctx.Query("refresh") == "true"
 
 	if uid == "" {
 		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
@@ -71,7 +72,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 		})
 	}
 
-	if database.Rdb != nil {
+	if !refresh && database.Rdb != nil {
 		if cachedBytes, err := database.Rdb.Get(database.Ctx, uid).Bytes(); err == nil && len(cachedBytes) > 0 {
 			var cachedSummary model.ProfileSummary
 			if err := json.Unmarshal(cachedBytes, &cachedSummary); err == nil {
