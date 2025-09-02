@@ -1,6 +1,7 @@
 package main
 
 import (
+	"hsr-profile-tracker/internal/database"
 	"hsr-profile-tracker/internal/routes"
 	"log"
 
@@ -9,8 +10,9 @@ import (
 )
 
 func main() {
-	app := fiber.New()
+	database.ConnectRedis()
 
+	app := fiber.New()
 	app.Use(cors.New())
 
 	routes.ProfileRoutes(app)
