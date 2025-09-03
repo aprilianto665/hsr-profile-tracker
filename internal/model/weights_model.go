@@ -23,10 +23,17 @@ type EffectiveStats struct {
 	WindAddedRatio         float64 `json:"WindAddedRatio"`
 }
 
+type MainStats struct {
+	Body   []string `json:"Body"`
+	Feet   []string `json:"Feet"`
+	Sphere []string `json:"Sphere"`
+	Rope   []string `json:"Rope"`
+}
+
 type CharacterWeights struct {
-	Character      string              `json:"character"`
-	Role           string              `json:"role"`
-	EffectiveStats EffectiveStats      `json:"effective_stats"`
-	MainStats      map[string][]string `json:"main_stats"`
-	UsableSets     []string            `json:"usable_sets"`
+	Character      string         `json:"character"`
+	Role           string         `json:"role"`
+	EffectiveStats EffectiveStats `json:"effective_stats"`
+	MainStats      MainStats      `json:"main_stats"`
+	UsableSets     []string       `json:"usable_sets"`
 }
