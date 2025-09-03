@@ -98,6 +98,8 @@ type RelicSummary struct {
 	Icon      string             `json:"icon"`
 	MainAffix *AttributeSummary  `json:"main_affix"`
 	SubAffix  []AttributeSummary `json:"sub_affix"`
+	Rank      string             `json:"rank"`
+	Score     float64            `json:"score"`
 }
 
 type LightConeSummary struct {
