@@ -30,7 +30,6 @@
     "character": "March 7th",
     "role": "Support",
     "substat_weights": {
-      "CRIT_DMG": 0,
       "SPD": 1.0,
       "HP_PCT": 1.0,
       "HP_FLAT": 1.0,
@@ -45,7 +44,7 @@
       "Sphere": ["DEF_PCT"],
       "Rope":   ["ER", "DEF_PCT"]
     },
-    "usable_sets": ["Knight of Purity Palace", "Belobog of the Architects", "Guard of Wuthering Snow", "Messenger Traversing Hackerspace"],
+    "usable_sets": ["Knight of Purity Palace", "Belobog of the Architects", "Fleet of the Ageless", "Messenger Traversing Hackerspace"],
     "speed_breakpoints": [134, 143, 160],
     "stat_goals": {
       "HP":  {"min": 2800, "max": 3000},
@@ -73,10 +72,12 @@
     "usable_sets": [
       "Eagle of Twilight Line",
       "Musketeer of Wild Wheat",
-      "Hunter of Glacial Forest",
-      "Knight of Purity Palace",
-      "Firesmith of Lava-Forging",
-      "Thief of Shooting Meteor"
+      "Messenger Traversing Hackerspace",
+      "Pioneer Diver of Dead Waters",
+      "Firmament Frontline Glamoth",
+      "Rutilant Arena",
+      "Space Sealing Station",
+      "Inert Salsotto"
     ],
     "speed_breakpoints": ["Base", 134, 143],
     "stat_goals": {
@@ -103,11 +104,13 @@
     },
     "usable_sets": [
       "Band of Sizzling Thunder",
-      "Space Sealing Station",
-      "Eagle of Twilight Line",
       "Musketeer of Wild Wheat",
-      "Thief of Shooting Meteor",
-      "Firesmith of Lava-Forging"
+      "Longevous Disciple",
+      "Pioneer Diver of Dead Waters",
+      "Space Sealing Station",
+      "Rutilant Arena",
+      "Inert Salsotto",
+      "Firmament Frontline Glamoth"
     ],
     "speed_breakpoints": ["Base", 134, 143],
     "stat_goals": {
