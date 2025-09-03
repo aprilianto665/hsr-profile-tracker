@@ -7,7 +7,7 @@ type RelicSet struct {
 }
 
 type Attribute struct {
-	Type    int     `json:"type"`
+	Type    string  `json:"type"`
 	Name    string  `json:"name"`
 	Icon    string  `json:"icon"`
 	Value   float64 `json:"value"`
