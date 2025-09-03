@@ -1,0 +1,28 @@
+{
+  "character": "Trailblazer (Ice)",
+  "role": "Support",
+  "substat_weights": {
+    "SpeedDelta": 1.0,
+    "CriticalDamageBase": 1.0,
+    "StatusResistanceBase": 1.0,
+    "IceAddedRatio": 1.0,
+    "HPAddedRatio": 0.75,
+    "HPDelta": 0.75,
+    "DefenceAddedRatio": 0.75,
+    "DefenceDelta": 0.75,
+    "EnergyRegenerationRate": 0.5
+  },
+  "main_stats": {
+    "Body": ["CriticalDamageBase", "HPAddedRatio", "DefenceAddedRatio"],
+    "Feet": ["SpeedDelta"],
+    "Sphere": ["HPAddedRatio", "DefenceAddedRatio", "IceAddedRatio"],
+    "Rope": ["EnergyRegenerationRate", "HPAddedRatio", "DefenceAddedRatio"]
+  },
+  "usable_sets": [
+    "Messenger Traversing Hackerspace",
+    "Hero of Triumphant Song",
+    "Eagle of Twilight Line",
+    "Broken Keel",
+    "Sprightly Vonwacq"
+  ]
+}
