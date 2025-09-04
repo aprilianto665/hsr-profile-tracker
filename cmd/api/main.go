@@ -16,8 +16,15 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 
-	es, _ := configs.LoadEffectiveStatstWeights("internal/configs/effective_stats.json")
+	es, err := configs.LoadEffectiveStatstWeights("internal/configs/effective_stats.json")
+	if err != nil {
+		log.Fatal("Failed to load effective stats:", err)
+	}
+
 	cw, _ := configs.LoadCharacterWeights("internal/configs/character_weights.json")
+	if err != nil {
+		log.Fatal("Failed to load character weights:", err)
+	}
 
 	configs.EffectiveStats = es
 	configs.CharacterWeights = cw
