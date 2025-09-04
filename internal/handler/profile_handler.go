@@ -12,10 +12,6 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func MatchCharacterWeight(name model.Character, userName model.Player) {
-
-}
-
 func CheckProfile(ctx *fiber.Ctx) error {
 	uid := ctx.Params("uid")
 
