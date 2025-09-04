@@ -115,6 +115,8 @@ func GetProfile(ctx *fiber.Ctx) error {
 	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
 	for _, c := range RawData.Characters {
 
+		util.CalculateRelicScore(player, c)
+
 		c.Path.Icon = util.NormalizeIconPath(c.Path.Icon)
 		c.Element.Icon = util.NormalizeIconPath(c.Element.Icon)
 
