@@ -1,6 +1,7 @@
 package main
 
 import (
+	"hsr-profile-tracker/internal/configs"
 	"hsr-profile-tracker/internal/database"
 	"hsr-profile-tracker/internal/routes"
 	"log"
@@ -14,6 +15,12 @@ func main() {
 
 	app := fiber.New()
 	app.Use(cors.New())
+
+	es, _ := configs.LoadEffectiveStatstWeights("internal/configs/effective_stats.json")
+	cw, _ := configs.LoadCharacterWeights("internal/configs/character_weights.json")
+
+	configs.EffectiveStats = es
+	configs.CharacterWeights = cw
 
 	routes.ProfileRoutes(app)
 
