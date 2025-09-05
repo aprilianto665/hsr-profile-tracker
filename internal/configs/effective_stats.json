@@ -10,5 +10,5 @@
   "SpeedDelta": 2,
   "StatusProbabilityBase": 4.32,
   "StatusResistanceBase": 4.32,
-  "BreakDamageAddedRatio": 6.48
+  "BreakDamageAddedRatioBase": 6.48
 }

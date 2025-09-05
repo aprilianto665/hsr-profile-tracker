@@ -30,31 +30,41 @@ func FormatAttributeValue(attr model.Attribute) string {
 	return fmt.Sprintf("%d", int(attr.Value))
 }
 
-func BuildRelicSummaryOut(r model.Relic) model.RelicSummary {
-	main := model.AttributeSummary{
-		Name:  r.MainAffix.Name,
-		Icon:  NormalizeIconPath(r.MainAffix.Icon),
-		Value: FormatAttributeValue(*r.MainAffix),
-	}
+func BuildRelicSummaryOut(player model.Player, char model.Character) []model.RelicSummary {
+	relics := make([]model.RelicSummary, 0, len(char.Relics))
 
-	subs := make([]model.AttributeSummary, 0, len(r.SubAffix))
-	for _, s := range r.SubAffix {
-		subs = append(subs, model.AttributeSummary{
-			Name:  s.Name,
-			Icon:  NormalizeIconPath(s.Icon),
-			Value: FormatAttributeValue(s),
+	for _, r := range char.Relics {
+		main := model.AttributeSummary{
+			Name:  r.MainAffix.Name,
+			Icon:  NormalizeIconPath(r.MainAffix.Icon),
+			Value: FormatAttributeValue(*r.MainAffix),
+		}
+
+		subs := make([]model.AttributeSummary, 0, len(r.SubAffix))
+		for _, s := range r.SubAffix {
+			subs = append(subs, model.AttributeSummary{
+				Name:  s.Name,
+				Icon:  NormalizeIconPath(s.Icon),
+				Value: FormatAttributeValue(s),
+			})
+		}
+
+		score := CalculateRelicScoreValue(r, player, char)
+		rank := GetSingleRelicRank(score)
+
+		relics = append(relics, model.RelicSummary{
+			Name:      r.Name,
+			Type:      r.Type,
+			Icon:      NormalizeIconPath(r.Icon),
+			Rarity:    r.Rarity,
+			Level:     r.Level,
+			MainAffix: &main,
+			SubAffix:  subs,
+			Score:     score,
+			Rank:      rank,
 		})
 	}
-
-	return model.RelicSummary{
-		Name:      r.Name,
-		Type:      r.Type,
-		Icon:      NormalizeIconPath(r.Icon),
-		Rarity:    r.Rarity,
-		Level:     r.Level,
-		MainAffix: &main,
-		SubAffix:  subs,
-	}
+	return relics
 }
 
 func BuildLightConeSummaryOut(lc *model.LightCone) *model.LightConeSummary {

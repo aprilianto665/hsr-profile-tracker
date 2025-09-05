@@ -11,13 +11,21 @@
     "HPDelta": 0.75,
     "DefenceAddedRatio": 0.75,
     "DefenceDelta": 0.75,
-    "EnergyRegenerationRate": 0.5
+    "SPRatioBase": 0.5
+  },
+  "relic_part_weight":{
+    "1": 8.75,
+    "2": 8.75,
+    "3": 11.5,
+    "4": 11.5,
+    "5": 11,
+    "6": 11.75
   },
   "main_stats": {
     "Body": ["CriticalDamageBase", "HPAddedRatio", "DefenceAddedRatio"],
     "Feet": ["SpeedDelta"],
     "Sphere": ["HPAddedRatio", "DefenceAddedRatio", "IceAddedRatio"],
-    "Rope": ["EnergyRegenerationRate", "HPAddedRatio", "DefenceAddedRatio"]
+    "Rope": ["SPRatioBase", "HPAddedRatio", "DefenceAddedRatio"]
   },
   "usable_sets": [
     "Messenger Traversing Hackerspace",

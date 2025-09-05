@@ -115,18 +115,12 @@ func GetProfile(ctx *fiber.Ctx) error {
 	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
 	for _, c := range RawData.Characters {
 
-		util.CalculateRelicScore(player, c)
-
 		c.Path.Icon = util.NormalizeIconPath(c.Path.Icon)
 		c.Element.Icon = util.NormalizeIconPath(c.Element.Icon)
 
 		lc := util.BuildLightConeSummaryOut(c.LightCone)
 
-		relics := make([]model.RelicSummary, 0, len(c.Relics))
-
-		for _, r := range c.Relics {
-			relics = append(relics, util.BuildRelicSummaryOut(r))
-		}
+		relics := util.BuildRelicSummaryOut(player, c)
 
 		relicSets := util.NormalizeRelicSetIcons(c.RelicSets)
 
