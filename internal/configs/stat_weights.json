@@ -1,5 +1,5 @@
 {
-  "CoefficientStat": {
+  "coefficient_stat": {
     "CriticalChanceBase": 2,
     "CriticalDamageBase": 1,
     "AttackAddedRatio": 1.5,
@@ -13,7 +13,7 @@
     "StatusResistanceBase": 1.5,
     "BreakDamageAddedRatioBase": 1
   },
-  "BaseStat": {
+  "base_stat": {
     "AttackDelta": 1149,
     "HPDelta": 2271,
     "DefenceDelta": 988

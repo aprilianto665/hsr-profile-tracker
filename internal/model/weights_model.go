@@ -1,8 +1,8 @@
 package model
 
 type StatWeight struct {
-	CoefficientStat map[string]float64 `json:"CoefficientStat"`
-	BaseStat        int                `json:"BaseStat"`
+	CoefficientStat map[string]float64 `json:"coefficient_stat"`
+	BaseStat        int                `json:"base_stat"`
 }
 
 type MainStats struct {
