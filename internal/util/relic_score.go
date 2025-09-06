@@ -24,7 +24,7 @@ func FindStatCoefficient(stat string) float64 {
 	return configs.StatWeights.CoefficientStat[stat]
 }
 
-func FindBaseStat(stat string) int {
+func FindBaseStat(stat string) float64 {
 	return configs.StatWeights.BaseStat[stat]
 }
 
@@ -72,30 +72,34 @@ func contains(slice []string, item string) bool {
 }
 
 func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Character) float64 {
-	// charWeight := FindCharacterWeights(player, char)
+	charWeight := FindCharacterWeights(player, char)
 
-	// var totalScore float64
+	var totalScore float64
 
-	// totalScore += CalculateMainStatScore(r, charWeight)
-	// fmt.Println("mainstats", r.Type, "=", totalScore)
+	fmt.Println("Relic Slot", r.Type)
 
 	for _, sub := range r.SubAffix {
 
-		// val := sub.Value
 		if sub.Type != "SpeedDelta" && !sub.Percent {
-			fmt.Println("Stat Flat", sub.Type, FindBaseStat(sub.Type))
+
+			totalScore += ((sub.Value / FindBaseStat(sub.Type)) * 100) * FindStatCoefficient(sub.Type) * charWeight.SubstatWeights[sub.Type]
+			fmt.Println("Stat Flat", sub.Type, sub.Value, "/", FindBaseStat(sub.Type), "* 100 *", FindStatCoefficient(sub.Type), "*", charWeight.SubstatWeights[sub.Type], "=", ((sub.Value/FindBaseStat(sub.Type))*100)*FindStatCoefficient(sub.Type)*charWeight.SubstatWeights[sub.Type])
+		} else {
+
+			val := sub.Value
+
+			if sub.Type != "SpeedDelta" {
+				val *= 100
+			}
+
+			totalScore += val * FindStatCoefficient(sub.Type) * charWeight.SubstatWeights[sub.Type]
+			fmt.Println("Stat Percent", sub.Type, val, "*", FindStatCoefficient(sub.Type), "*", charWeight.SubstatWeights[sub.Type], "=", val*FindStatCoefficient(sub.Type)*charWeight.SubstatWeights[sub.Type])
 		}
-
-		fmt.Println("Coefficient", sub.Type, FindStatCoefficient(sub.Type))
-
-		// 	weight := charWeight.SubstatWeights[sub.Type]
-		// 	effectiveValue := FindEffectiveStats(sub.Type)
-
-		// 	totalScore += (val / effectiveValue) * weight
-		// 	fmt.Println("sub", i, val, "/", effectiveValue, "*", weight, "=", math.Floor(((val/effectiveValue)*weight)*100)/100)
 	}
 
-	return 0
+	totalScore += CalculateMainStatScore(r, charWeight)
+	fmt.Println("total :", totalScore, "+", CalculateMainStatScore(r, charWeight), "=", totalScore)
+	return totalScore
 }
 
 func GetSingleRelicRank(score float64) string {
