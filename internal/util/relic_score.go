@@ -28,7 +28,7 @@ func FindBaseStat(stat string) float64 {
 	return configs.StatWeights.BaseStat[stat]
 }
 
-func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) float64 {
+func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, score float64) float64 {
 	slotMap := map[int]string{
 		3: "Body",
 		4: "Feet",
@@ -38,7 +38,7 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) fl
 
 	slotName := slotMap[r.Type]
 	if slotName == "" {
-		return 0
+		return score
 	}
 
 	recommendedStats := charWeight.MainStats
@@ -56,10 +56,10 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) fl
 	}
 
 	if isRecommended {
-		return 5.832
+		return score + 5.832
 	}
 
-	return 0
+	return score * 0.5
 }
 
 func contains(slice []string, item string) bool {
@@ -97,8 +97,8 @@ func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Cha
 		}
 	}
 
-	totalScore += CalculateMainStatScore(r, charWeight)
-	fmt.Println("total :", totalScore, "+", CalculateMainStatScore(r, charWeight), "=", totalScore)
+	totalScore = CalculateMainStatScore(r, charWeight, totalScore)
+	fmt.Println("total :", totalScore)
 	return totalScore
 }
 
