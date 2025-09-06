@@ -1,7 +1,6 @@
 [
 {
   "character": "Trailblazer (Ice)",
-  "role": "Support",
   "substat_weights": {
     "SpeedDelta": 1.0,
     "CriticalDamageBase": 1.0,

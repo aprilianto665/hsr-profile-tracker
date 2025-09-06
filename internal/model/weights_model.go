@@ -14,7 +14,6 @@ type MainStats struct {
 
 type CharacterWeights struct {
 	Character      string             `json:"character"`
-	Role           string             `json:"role"`
 	SubstatWeights map[string]float64 `json:"substat_weights"`
 	MainStats      MainStats          `json:"main_stats"`
 	UsableSets     []string           `json:"usable_sets"`
