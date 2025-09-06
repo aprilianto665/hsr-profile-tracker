@@ -22,6 +22,10 @@ func FindCharacterWeights(player model.Player, char model.Character) model.Chara
 	return result
 }
 
+func FindStatCoefficient(stat string) float64 {
+	return configs.StatWeights.CoefficientStat[stat]
+}
+
 func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) float64 {
 	slotMap := map[int]string{
 		3: "Body",
@@ -50,8 +54,7 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) fl
 	}
 
 	if isRecommended {
-		weight := charWeight.SubstatWeights[r.MainAffix.Type]
-		return 3.0 * weight
+		return 5.832
 	}
 
 	return 0
