@@ -21,13 +21,13 @@ func main() {
 		log.Fatal("Failed to load character weights:", err)
 	}
 
-	stats, err := configs.LoadEffectiveStats("internal/configs/stat_weights.json")
+	stats, err := configs.LoadStatWeights("internal/configs/stat_weights.json")
 	if err != nil {
 		log.Fatal("Failed to load effective stats:", err)
 	}
 
-	configs.EffectiveStats = stats
 	configs.CharacterWeights = chars
+	configs.StatWeights = stats
 
 	routes.ProfileRoutes(app)
 

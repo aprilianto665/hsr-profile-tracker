@@ -8,7 +8,7 @@ import (
 )
 
 var CharacterWeights map[string]model.CharacterWeights
-var EffectiveStats *model.EffectiveStats
+var StatWeights *model.StatWeight
 
 func LoadCharacterWeights(path string) (map[string]model.CharacterWeights, error) {
 	file, err := os.Open(path)
@@ -30,16 +30,17 @@ func LoadCharacterWeights(path string) (map[string]model.CharacterWeights, error
 	return result, nil
 }
 
-func LoadEffectiveStats(path string) (*model.EffectiveStats, error) {
+func LoadStatWeights(path string) (*model.StatWeight, error) {
 	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	var result *model.EffectiveStats
+	var result *model.StatWeight
 	if err := json.NewDecoder(file).Decode(&result); err != nil {
 		return nil, err
 	}
+
 	return result, nil
 }

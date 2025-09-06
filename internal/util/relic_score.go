@@ -5,7 +5,6 @@ import (
 	"hsr-profile-tracker/internal/configs"
 	"hsr-profile-tracker/internal/model"
 	"math"
-	"reflect"
 	"strconv"
 )
 
@@ -21,13 +20,6 @@ func FindCharacterWeights(player model.Player, char model.Character) model.Chara
 	result := configs.CharacterWeights[char.Name]
 
 	return result
-}
-
-func FindEffectiveStats(statType string) float64 {
-	value := reflect.ValueOf(*configs.EffectiveStats)
-	field := value.FieldByName(statType)
-
-	return field.Float()
 }
 
 func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) float64 {
