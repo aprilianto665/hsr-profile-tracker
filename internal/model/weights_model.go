@@ -1,18 +1,8 @@
 package model
 
-type EffectiveStats struct {
-	CriticalChanceBase        float64 `json:"CriticalChanceBase"`
-	CriticalDamageBase        float64 `json:"CriticalDamageBase"`
-	AttackAddedRatio          float64 `json:"AttackAddedRatio"`
-	HPAddedRatio              float64 `json:"HPAddedRatio"`
-	DefenceAddedRatio         float64 `json:"DefenceAddedRatio"`
-	AttackDelta               float64 `json:"AttackDelta"`
-	HPDelta                   float64 `json:"HPDelta"`
-	DefenceDelta              float64 `json:"DefenceDelta"`
-	SpeedDelta                float64 `json:"SpeedDelta"`
-	StatusProbabilityBase     float64 `json:"StatusProbabilityBase"`
-	StatusResistanceBase      float64 `json:"StatusResistanceBase"`
-	BreakDamageAddedRatioBase float64 `json:"BreakDamageAddedRatioBase"`
+type StatWeight struct {
+	CoefficientStat map[string]float64 `json:"CoefficientStat"`
+	BaseStat        int                `json:"BaseStat"`
 }
 
 type MainStats struct {
