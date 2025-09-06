@@ -21,7 +21,7 @@ func main() {
 		log.Fatal("Failed to load character weights:", err)
 	}
 
-	stats, err := configs.LoadEffectiveStats("internal/configs/effective_stats.json")
+	stats, err := configs.LoadEffectiveStats("internal/configs/stat_weights.json")
 	if err != nil {
 		log.Fatal("Failed to load effective stats:", err)
 	}
