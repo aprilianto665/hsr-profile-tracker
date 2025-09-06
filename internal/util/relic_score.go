@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"hsr-profile-tracker/internal/configs"
 	"hsr-profile-tracker/internal/model"
-	"math"
-	"strconv"
 )
 
 func FindCharacterWeights(player model.Player, char model.Character) model.CharacterWeights {
@@ -24,6 +22,10 @@ func FindCharacterWeights(player model.Player, char model.Character) model.Chara
 
 func FindStatCoefficient(stat string) float64 {
 	return configs.StatWeights.CoefficientStat[stat]
+}
+
+func FindBaseStat(stat string) int {
+	return configs.StatWeights.BaseStat[stat]
 }
 
 func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights) float64 {
@@ -70,47 +72,47 @@ func contains(slice []string, item string) bool {
 }
 
 func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Character) float64 {
-	charWeight := FindCharacterWeights(player, char)
-	partWeight := charWeight.RelicPartWeight[strconv.Itoa(r.Type)]
+	// charWeight := FindCharacterWeights(player, char)
 
-	var totalScore float64
+	// var totalScore float64
 
-	totalScore += CalculateMainStatScore(r, charWeight)
-	fmt.Println("mainstats", r.Type, "=", totalScore)
+	// totalScore += CalculateMainStatScore(r, charWeight)
+	// fmt.Println("mainstats", r.Type, "=", totalScore)
 
-	for i, sub := range r.SubAffix {
-		val := sub.Value
-		if sub.Percent {
-			val = sub.Value * 100
+	for _, sub := range r.SubAffix {
+
+		// val := sub.Value
+		if sub.Type != "SpeedDelta" && !sub.Percent {
+			fmt.Println("Stat Flat", sub.Type, FindBaseStat(sub.Type))
 		}
 
-		weight := charWeight.SubstatWeights[sub.Type]
-		effectiveValue := FindEffectiveStats(sub.Type)
+		fmt.Println("Coefficient", sub.Type, FindStatCoefficient(sub.Type))
 
-		totalScore += (val / effectiveValue) * weight
-		fmt.Println("sub", i, val, "/", effectiveValue, "*", weight, "=", math.Floor(((val/effectiveValue)*weight)*100)/100)
+		// 	weight := charWeight.SubstatWeights[sub.Type]
+		// 	effectiveValue := FindEffectiveStats(sub.Type)
+
+		// 	totalScore += (val / effectiveValue) * weight
+		// 	fmt.Println("sub", i, val, "/", effectiveValue, "*", weight, "=", math.Floor(((val/effectiveValue)*weight)*100)/100)
 	}
 
-	fmt.Println("final score ", totalScore, "*", (55 / partWeight), "=", totalScore*(55/partWeight))
-
-	return totalScore * (55 / partWeight)
+	return 0
 }
 
 func GetSingleRelicRank(score float64) string {
 	switch {
-	case score >= 43.7:
+	case score >= 40:
 		return "SSS"
-	case score >= 37.8:
+	case score >= 35:
 		return "SS"
-	case score >= 33.5:
+	case score >= 30:
 		return "S"
-	case score >= 29.1:
+	case score >= 20:
 		return "A"
-	case score >= 23.3:
+	case score >= 15:
 		return "B"
-	case score >= 17.5:
+	case score >= 10:
 		return "C"
-	case score >= 11.6:
+	case score >= 0:
 		return "D"
 	default:
 		return "N/A"
