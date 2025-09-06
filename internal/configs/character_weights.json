@@ -5,25 +5,27 @@
   "substat_weights": {
     "SpeedDelta": 1.0,
     "CriticalDamageBase": 1.0,
-    "StatusResistanceBase": 1.0,
-    "IceAddedRatio": 1.0,
+    "StatusResistanceBase": 0.75,
     "HPAddedRatio": 0.75,
     "HPDelta": 0.75,
     "DefenceAddedRatio": 0.75,
-    "DefenceDelta": 0.75,
-    "SPRatioBase": 0.5
+    "DefenceDelta": 0.75
   },
   "main_stats": {
-    "Body": ["CriticalDamageBase", "HPAddedRatio", "DefenceAddedRatio"],
+    "Body": ["CriticalDamageBase"],
     "Feet": ["SpeedDelta"],
     "Sphere": ["HPAddedRatio", "DefenceAddedRatio", "IceAddedRatio"],
-    "Rope": ["SPRatioBase", "HPAddedRatio", "DefenceAddedRatio"]
+    "Rope": ["SPRatioBase"]
   },
   "usable_sets": [
     "Messenger Traversing Hackerspace",
+    "Sacerdos' Relived Ordeal",
     "Hero of Triumphant Song",
     "Eagle of Twilight Line",
     "Broken Keel",
+    "Lushaka, the Sunken Seas",
+    "Penacony, Land of the Dreams",
+    "Fleet of the Ageless",
     "Sprightly Vonwacq"
   ]
 }
