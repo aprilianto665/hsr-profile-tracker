@@ -80,9 +80,9 @@ type RawData struct {
 }
 
 type RelicScore struct {
-	Rank      string  `json:"rank"`
-	BaseScore float64 `json:"base_score"`
-	SetBonus  float64 `json:"set_bonus"`
+	Rank         string  `json:"rank"`
+	TotalScore   float64 `json:"total_score"`
+	AverageScore float64 `json:"average_score"`
 }
 
 type AttributeSummary struct {
