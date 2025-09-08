@@ -1,629 +1,662 @@
 [
-{
-  "character": "Trailblazer (Ice)",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "CriticalDamageBase": 1.0,
-    "StatusResistanceBase": 0.75,
-    "HPAddedRatio": 0.75,
-    "HPDelta": 0.75,
-    "DefenceAddedRatio": 0.75,
-    "DefenceDelta": 0.75
+  {
+    "character": "Trailblazer (Ice)",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "CriticalDamageBase": 1.0,
+      "StatusResistanceBase": 0.75,
+      "HPAddedRatio": 0.75,
+      "HPDelta": 0.75,
+      "DefenceAddedRatio": 0.75,
+      "DefenceDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalDamageBase"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio", "DefenceAddedRatio", "IceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Sacerdos' Relived Ordeal",
+      "Hero of Triumphant Song",
+      "Eagle of Twilight Line",
+      "Broken Keel",
+      "Lushaka, the Sunken Seas",
+      "Penacony, Land of the Dreams",
+      "Fleet of the Ageless",
+      "Sprightly Vonwacq"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalDamageBase"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio", "DefenceAddedRatio", "IceAddedRatio"],
-    "Rope": ["SPRatioBase"]
+  {
+    "character": "March 7th",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 0.75,
+      "DefenceDelta": 0.75,
+      "StatusProbabilityBase": 1.0,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["StatusProbabilityBase", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["DefenceAddedRatio"],
+      "Rope": ["DefenceAddedRatio", "SPRatioBase"]
+    },
+    "usable_sets": [
+      "Knight of Purity Palace",
+      "Belobog of the Architects",
+      "Fleet of the Ageless",
+      "Messenger Traversing Hackerspace"
+    ]
   },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Sacerdos' Relived Ordeal",
-    "Hero of Triumphant Song",
-    "Eagle of Twilight Line",
-    "Broken Keel",
-    "Lushaka, the Sunken Seas",
-    "Penacony, Land of the Dreams",
-    "Fleet of the Ageless",
-    "Sprightly Vonwacq"
-  ]
-},
-{
-  "character": "March 7th",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "HPDelta": 1.0,
-    "DefenceAddedRatio": 0.75,
-    "DefenceDelta": 0.75,
-    "EffectHitRateBase": 1.0,
-    "StatusResistanceBase": 0.5,
-    "CriticalDamageBase": 0.75
+  {
+    "character": "Dan Heng",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["AttackAddedRatio", "SpeedDelta"],
+      "Sphere": ["WindAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Eagle of Twilight Line",
+      "Musketeer of Wild Wheat",
+      "Pioneer Diver of Dead Waters",
+      "Messenger Traversing Hackerspace",
+      "Firmament Frontline: Glamoth",
+      "Space Sealing Station",
+      "Inert Salsotto",
+      "Rutilant Arena"
+    ]
   },
-  "main_stats": {
-    "Body": ["EffectHitRateBase", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["DefenceAddedRatio"],
-    "Rope": ["DefenceAddedRatio", "SPRatioBase"]
+  {
+    "character": "Arlan",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Band of Sizzling Thunder",
+      "Longevous Disciple",
+      "Musketeer of Wild Wheat",
+      "Pioneer Diver of Dead Waters",
+      "Firmament Frontline: Glamoth",
+      "Inert Salsotto",
+      "Space Sealing Station",
+      "Rutilant Arena"
+    ]
   },
-  "usable_sets": [
-    "Knight of Purity Palace",
-    "Belobog of the Architects",
-    "Guard of Wuthering Snow",
-    "Messenger Traversing Hackerspace"
-  ]
-},
-{
-  "character": "Dan Heng",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
+  {
+    "character": "Asta",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "BreakDamageAddedRatioBase": 0.75,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Longevous Disciple",
+      "Musketeer of Wild Wheat",
+      "Watchmaker, Master of Dream Machinations",
+      "Fleet of the Ageless",
+      "Broken Keel",
+      "Penacony, Land of the Dreams",
+      "Sprightly Vonwacq"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["AttackAddedRatio", "SpeedDelta"],
-    "Sphere": ["WindAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "Herta",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["IceAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "The Ashblazing Grand Duke",
+      "Hunter of Glacial Forest",
+      "Musketeer of Wild Wheat",
+      "Prisoner in Deep Confinement",
+      "The Wind-Soaring Valorous",
+      "Genius of Brilliant Stars",
+      "Firmament Frontline: Glamoth",
+      "Inert Salsotto",
+      "Rutilant Arena",
+      "Space Sealing Station"
+    ]
   },
-  "usable_sets": [
-    "Eagle of Twilight Line",
-    "Musketeer of Wild Wheat",
-    "Wastelander of Banditry Desert",
-    "Messenger Traversing Hackerspace",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Arlan",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
+  {
+    "character": "Serval",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["AttackAddedRatio", "SpeedDelta"],
+      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Pioneer Diver of Dead Waters",
+      "Band of Sizzling Thunder",
+      "Musketeer of Wild Wheat",
+      "Firmament Frontline: Glamoth",
+      "Space Sealing Station",
+      "Inert Salsotto",
+      "Rutilant Arena"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "Natasha",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 0.5,
+      "DefenceDelta": 0.5,
+      "StatusResistanceBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["HealRatioBase", "HPAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Passerby of Wandering Cloud",
+      "Longevous Disciple",
+      "Fleet of the Ageless",
+      "Broken Keel",
+      "Sprightly Vonwacq",
+      "Penacony, Land of the Dreams"
+    ]
   },
-  "usable_sets": [
-    "Band of Sizzling Thunder",
-    "Space Sealing Station",
-    "Eagle of Twilight Line",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Asta",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "DefenceDelta": 1.0,
-    "BreakDamageAddedRatioBase": 0.75,
-    "StatusResistanceBase": 0.5
+  {
+    "character": "Pela",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "StatusProbabilityBase": 1.0,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["StatusProbabilityBase", "HPAddedRatio", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["DefenceAddedRatio", "HPAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Sacerdos' Relived Ordeal",
+      "Guard of Wuthering Snow",
+      "Longevous Disciple",
+      "Eagle of Twilight Line",
+      "Musketeer of Wild Wheat",
+      "Penacony, Land of the Dreams",
+      "Broken Keel",
+      "Fleet of the Ageless",
+      "Lushaka, the Sunken Seas",
+      "Sprightly Vonwacq"
+    ]
   },
-  "main_stats": {
-    "Body": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Rope": ["SPRatioBase"]
+  {
+    "character": "Sampo",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 1.0,
+      "AttackDelta": 0.75,
+      "BreakDamageAddedRatioBase": 0.75,
+      "StatusProbabilityBase": 0.75
+    },
+    "main_stats": {
+      "Body": ["StatusProbabilityBase", "AttackAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["WindAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Prisoner in Deep Confinement",
+      "Pioneer Diver of Dead Waters",
+      "Eagle of Twilight Line",
+      "Musketeer of Wild Wheat",
+      "Firmament Frontline: Glamoth",
+      "Pan-Cosmic Commercial Enterprise",
+      "Space Sealing Station"
+    ]
   },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Space Sealing Station",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams"
-  ]
-},
-{
-  "character": "Herta",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
+  {
+    "character": "Hook",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["FireAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Pioneer Diver of Dead Waters",
+      "Firesmith of Lava-Forging",
+      "Musketeer of Wild Wheat",
+      "Firmament Frontline: Glamoth",
+      "Rutilant Arena",
+      "Space Sealing Station",
+      "Inert Salsotto"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["IceAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "Lynx",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 0.5,
+      "DefenceDelta": 0.5,
+      "StatusResistanceBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["HealRatioBase", "HPAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Passerby of Wandering Cloud",
+      "Longevous Disciple",
+      "Fleet of the Ageless",
+      "Broken Keel",
+      "Sprightly Vonwacq",
+      "Penacony, Land of the Dreams"
+    ]
   },
-  "usable_sets": [
-    "Hunter of Glacial Forest",
-    "Genius of Brilliant Stars",
-    "Musketeer of Wild Wheat",
-    "Firesmith of Lava-Forging",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Serval",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
+  {
+    "character": "Luka",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 1.0,
+      "AttackDelta": 1.0,
+      "BreakDamageAddedRatioBase": 0.75,
+      "StatusProbabilityBase": 0.75
+    },
+    "main_stats": {
+      "Body": ["StatusProbabilityBase", "AttackAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["PhysicalAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
+    },
+    "usable_sets": [
+      "Prisoner in Deep Confinement",
+      "Thief of Shooting Meteor",
+      "Watchmaker, Master of Dream Machinations",
+      "Champion of Streetwise Boxing",
+      "Pioneer Diver of Dead Waters",
+      "Talia: Kingdom of Banditry",
+      "Firmament Frontline: Glamoth",
+      "Space Sealing Station",
+      "Pan-Cosmic Commercial Enterprise"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["AttackAddedRatio", "SpeedDelta"],
-    "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "Qingque",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["AttackAddedRatio", "SpeedDelta"],
+      "Sphere": ["QuantumAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Genius of Brilliant Stars",
+      "Poet of Mourning Collapse",
+      "Scholar Lost in Erudition",
+      "Musketeer of Wild Wheat",
+      "Firmament Frontline: Glamoth",
+      "Rutilant Arena",
+      "Space Sealing Station",
+      "Inert Salsotto"
+    ]
   },
-  "usable_sets": [
-    "Band of Sizzling Thunder",
-    "Space Sealing Station",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena",
-    "Izumo Gensei and Takama Divine Realm"
-  ]
-},
-{
-  "character": "Natasha",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "StatusResistanceBase": 1.0,
-    "CriticalDamageBase": 0.5,
-    "DefenceAddedRatio": 0.5,
-    "DefenceDelta": 0.5
+  {
+    "character": "Tingyun",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "AttackAddedRatio": 1.0,
+      "AttackDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["AttackAddedRatio", "HPAddedRatio", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["AttackAddedRatio", "HPAddedRatio", "DefenceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Sacerdos' Relived Ordeal",
+      "Musketeer of Wild Wheat",
+      "Longevous Disciple",
+      "Guard of Wuthering Snow",
+      "Watchmaker, Master of Dream Machinations",
+      "Broken Keel",
+      "Penacony, Land of the Dreams",
+      "Fleet of the Ageless",
+      "Sprightly Vonwacq"
+    ]
   },
-  "main_stats": {
-    "Body": ["HealingBase", "HPAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio"],
-    "Rope": ["SPRatioBase"]
+  {
+    "character": "Sushang",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75,
+      "BreakDamageAddedRatioBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["AttackAddedRatio", "SpeedDelta"],
+      "Sphere": ["PhysicalAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
+    },
+    "usable_sets": [
+      "Champion of Streetwise Boxing",
+      "Musketeer of Wild Wheat",
+      "Firmament Frontline: Glamoth",
+      "Rutilant Arena",
+      "Space Sealing Station",
+      "Inert Salsotto"
+    ]
   },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Passerby of Wandering Cloud",
-    "Space Sealing Station",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams"
-  ]
-},
-{
-  "character": "Pela",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "DefenceDelta": 1.0,
-    "EffectHitRateBase": 1.0,
-    "StatusResistanceBase": 0.5
+  {
+    "character": "Yukong",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Longevous Disciple",
+      "Guard of Wuthering Snow",
+      "Musketeer of Wild Wheat",
+      "Broken Keel",
+      "Fleet of the Ageless",
+      "Penacony, Land of the Dreams"
+    ]
   },
-  "main_stats": {
-    "Body": ["EffectHitRateBase", "HPAddedRatio", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["DefenceAddedRatio", "HPAddedRatio"],
-    "Rope": ["SPRatioBase"]
+  {
+    "character": "Guinaifen",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 1.0,
+      "AttackDelta": 1.0,
+      "HPAddedRatio": 0.75,
+      "HPDelta": 0.75,
+      "DefenceAddedRatio": 0.75,
+      "DefenceDelta": 0.75,
+      "BreakDamageAddedRatioBase": 0.75,
+      "StatusProbabilityBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["AttackAddedRatio", "StatusProbabilityBase"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["FireAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Prisoner in Deep Confinement",
+      "Firesmith of Lava-Forging",
+      "Musketeer of Wild Wheat",
+      "Messenger Traversing Hackerspace",
+      "Firmament Frontline: Glamoth",
+      "Pan-Cosmic Commercial Enterprise",
+      "Space Sealing Station",
+      "Fleet of the Ageless"
+    ]
   },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Prisoner in Deep Confinement",
-    "Thief of Shooting Meteor",
-    "Space Sealing Station",
-    "Belobog of the Architects",
-    "Guard of Wuthering Snow",
-    "Penacony, Land of the Dreams",
-    "Fleet of the Ageless"
-  ]
-},
-{
-  "character": "Sampo",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 1.0,
-    "AttackDelta": 0.75,
-    "BreakDamageAddedRatioBase": 0.75,
-    "EffectHitRateBase": 0.75
+  {
+    "character": "Xueyi",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75,
+      "BreakDamageAddedRatioBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["QuantumAddedRatio", "AttackAddedRatio"],
+      "Rope": ["BreakDamageAddedRatioBase"]
+    },
+    "usable_sets": [
+      "Genius of Brilliant Stars",
+      "Iron Cavalry Against the Scourge",
+      "Thief of Shooting Meteor",
+      "Musketeer of Wild Wheat",
+      "The Ashblazing Grand Duke",
+      "Talia: Kingdom of Banditry",
+      "Firmament Frontline: Glamoth",
+      "Space Sealing Station",
+      "Inert Salsotto",
+      "Rutilant Arena"
+    ]
   },
-  "main_stats": {
-    "Body": ["EffectHitRateBase", "AttackAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["WindAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "Hanya",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "StatusResistanceBase": 0.5
+    },
+    "main_stats": {
+      "Body": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Thief of Shooting Meteor",
+      "Longevous Disciple",
+      "Musketeer of Wild Wheat",
+      "Watchmaker, Master of Dream Machinations",
+      "Fleet of the Ageless",
+      "Broken Keel",
+      "Penacony, Land of the Dreams"
+    ]
   },
-  "usable_sets": [
-    "Wastelander of Banditry Desert",
-    "Eagle of Twilight Line",
-    "Prisoner in Deep Confinement",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Hook",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
+  {
+    "character": "Moze",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["AttackAddedRatio"],
+      "Sphere": ["LightningAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Pioneer Diver of Dead Waters",
+      "The Ashblazing Grand Duke",
+      "Scholar Lost in Erudition",
+      "Musketeer of Wild Wheat",
+      "Prisoner in Deep Confinement",
+      "The Wind-Soaring Valorous",
+      "Band of Sizzling Thunder",
+      "Duran, Dynasty of Running Wolves",
+      "Izumo Gensei and Takama Divine Realm",
+      "Inert Salsotto"
+    ]
   },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["FireAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
+  {
+    "character": "March 7th The Hunt",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75,
+      "BreakDamageAddedRatioBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["CriticalDamageBase", "CriticalChanceBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["ImaginaryAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
+    },
+    "usable_sets": [
+      "Iron Cavalry Against the Scourge",
+      "Thief of Shooting Meteor",
+      "Messenger Traversing Hackerspace",
+      "Scholar Lost in Erudition",
+      "Musketeer of Wild Wheat",
+      "Wastelander of Banditry Desert",
+      "Prisoner in Deep Confinement",
+      "The Wind-Soaring Valorous",
+      "Talia: Kingdom of Banditry",
+      "Forge of the Kalpagni Lantern",
+      "Rutilant Arena",
+      "Izumo Gensei and Takama Divine Realm",
+      "Firmament Frontline: Glamoth",
+      "Inert Salsotto"
+    ]
   },
-  "usable_sets": [
-    "Firesmith of Lava-Forging",
-    "Champion of Streetwise Boxing",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena",
-    "Firmament Frontline: Glamoth"
-  ]
-},
-{
-  "character": "Lynx",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "StatusResistanceBase": 1.0,
-    "CriticalDamageBase": 0.5,
-    "DefenceAddedRatio": 0.5,
-    "DefenceDelta": 0.5
+  {
+    "character": "Gallagher",
+    "substat_weights": {
+      "SpeedDelta": 1.0,
+      "HPAddedRatio": 1.0,
+      "HPDelta": 1.0,
+      "DefenceAddedRatio": 1.0,
+      "DefenceDelta": 1.0,
+      "BreakDamageAddedRatioBase": 1.0,
+      "StatusResistanceBase": 1.0
+    },
+    "main_stats": {
+      "Body": ["HealRatioBase", "HPAddedRatio"],
+      "Feet": ["SpeedDelta"],
+      "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
+      "Rope": ["SPRatioBase"]
+    },
+    "usable_sets": [
+      "Messenger Traversing Hackerspace",
+      "Passerby of Wandering Cloud",
+      "Sacerdos' Relived Ordeal",
+      "Watchmaker, Master of Dream Machinations",
+      "Thief of Shooting Meteor",
+      "Musketeer of Wild Wheat",
+      "Forge of the Kalpagni Lantern",
+      "Fleet of the Ageless",
+      "Broken Keel",
+      "Talia: Kingdom of Banditry",
+      "Penacony, Land of the Dreams",
+      "Sprightly Vonwacq",
+      "Lushaka, the Sunken Seas"
+    ]
   },
-  "main_stats": {
-    "Body": ["HealingBase", "HPAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio"],
-    "Rope": ["SPRatioBase"]
-  },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Passerby of Wandering Cloud",
-    "Space Sealing Station",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams"
-  ]
-},
-{
-  "character": "Luka",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 1.0,
-    "BreakDamageAddedRatioBase": 0.75,
-    "EffectHitRateBase": 0.75
-  },
-  "main_stats": {
-    "Body": ["EffectHitRateBase", "AttackAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["PhysicalAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
-  },
-  "usable_sets": [
-    "Prisoner in Deep Confinement",
-    "Thief of Shooting Meteor",
-    "Fleet of the Ageless",
-    "Champion of Streetwise Boxing",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Qingque",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
-  },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["AttackAddedRatio", "SpeedDelta"],
-    "Sphere": ["QuantumAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
-  },
-  "usable_sets": [
-    "Genius of Brilliant Stars",
-    "Longevous Disciple",
-    "Pioneer Diver of Dead Waters",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-},
-{
-  "character": "Tingyun",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "AttackAddedRatio": 1.0,
-    "EffectHitRateBase": 1.0,
-    "StatusResistanceBase": 0.5
-  },
-  "main_stats": {
-    "Body": ["AttackAddedRatio", "HPAddedRatio", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["AttackAddedRatio", "HPAddedRatio", "DefenceAddedRatio"],
-    "Rope": ["SPRatioBase"]
-  },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Prisoner in Deep Confinement",
-    "Thief of Shooting Meteor",
-    "Space Sealing Station",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams",
-    "Guard of Wuthering Snow"
-  ]
-},
-{
-  "character": "Sushang",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75,
-    "BreakDamageAddedRatioBase": 1.0
-  },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["AttackAddedRatio", "SpeedDelta"],
-    "Sphere": ["PhysicalAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
-  },
-  "usable_sets": [
-    "Champion of Streetwise Boxing",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena",
-    "Firmament Frontline: Glamoth"
-  ]
-},
-{
-  "character": "Yukong",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "DefenceDelta": 1.0,
-    "StatusResistanceBase": 0.5
-  },
-  "main_stats": {
-    "Body": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Rope": ["SPRatioBase"]
-  },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Space Sealing Station",
-    "Prisoner in Deep Confinement",
-    "Musketeer of Wild Wheat",
-    "Belobog of the Architects",
-    "Guard of Wuthering Snow",
-    "Fleet of the Ageless"
-  ]
-},
-{
-  "character": "Guinaifen",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 1.0,
-    "EffectHitRateBase": 1.0,
-    "HPAddedRatio": 0.75,
-    "DefenceAddedRatio": 0.75,
-    "CriticalDamageBase": 0.75,
-    "BreakDamageAddedRatioBase": 0.75
-  },
-  "main_stats": {
-    "Body": ["AttackAddedRatio", "EffectHitRateBase"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["FireAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
-  },
-  "usable_sets": [
-    "Wastelander of Banditry Desert",
-    "Champion of Streetwise Boxing",
-    "Musketeer of Wild Wheat",
-    "Messenger Traversing Hackerspace",
-    "The Ashblazing Grand Duke",
-    "Prisoner in Deep Confinement",
-    "Firmament Frontline: Glamoth"
-  ]
-},
-{
-  "character": "Xueyi",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75,
-    "BreakDamageAddedRatioBase": 1.0
-  },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["QuantumAddedRatio", "AttackAddedRatio"],
-    "Rope": ["BreakDamageAddedRatioBase"]
-  },
-  "usable_sets": [
-    "Genius of Brilliant Stars",
-    "Iron Cavalry Against the Scourge",
-    "Prisoner in Deep Confinement",
-    "Messenger Traversing Hackerspace",
-    "Champion of Streetwise Boxing",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena",
-    "Firmament Frontline: Glamoth"
-  ]
-}
-,{
-  "character": "Hanya",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "DefenceDelta": 1.0,
-    "StatusResistanceBase": 0.5
-  },
-  "main_stats": {
-    "Body": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Rope": ["SPRatioBase"]
-  },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Prisoner in Deep Confinement",
-    "Space Sealing Station",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams",
-    "Guard of Wuthering Snow"
-  ]
-},
-{
-  "character": "Moze",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
-  },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["AttackAddedRatio"],
-    "Sphere": ["LightningAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
-  },
-  "usable_sets": [
-    "Firesmith of Lava-Forging",
-    "Iron Cavalry Against the Scourge",
-    "Pioneer Diver of Dead Waters",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Prisoner in Deep Confinement",
-    "Rutilant Arena",
-    "Inert Salsotto",
-    "Space Sealing Station",
-    "Firmament Frontline: Glamoth"
-  ]
-},
-{
-  "character": "March 7th The Hunt",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75,
-    "BreakDamageAddedRatioBase": 1.0
-  },
-  "main_stats": {
-    "Body": ["CriticalDamageBase", "CriticalChanceBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["ImaginaryAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio", "BreakDamageAddedRatioBase"]
-  },
-  "usable_sets": [
-    "Wastelander of Banditry Desert",
-    "Iron Cavalry Against the Scourge",
-    "Messenger Traversing Hackerspace",
-    "Genius of Brilliant Stars",
-    "Champion of Streetwise Boxing",
-    "Musketeer of Wild Wheat",
-    "Pioneer Diver of Dead Waters",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena",
-    "Firmament Frontline: Glamoth"
-  ]
-}
-,{
-  "character": "Gallagher",
-  "substat_weights": {
-    "SpeedDelta": 1.0,
-    "HPAddedRatio": 1.0,
-    "DefenceAddedRatio": 1.0,
-    "DefenceDelta": 1.0,
-    "BreakDamageAddedRatioBase": 1.0,
-    "StatusResistanceBase": 1.0
-  },
-  "main_stats": {
-    "Body": ["HealingBase", "HPAddedRatio"],
-    "Feet": ["SpeedDelta"],
-    "Sphere": ["HPAddedRatio", "DefenceAddedRatio"],
-    "Rope": ["SPRatioBase"]
-  },
-  "usable_sets": [
-    "Messenger Traversing Hackerspace",
-    "Passerby of Wandering Cloud",
-    "Thief of Shooting Meteor",
-    "Guard of Wuthering Snow",
-    "Belobog of the Architects",
-    "Space Sealing Station",
-    "Fleet of the Ageless",
-    "Broken Keel",
-    "Penacony, Land of the Dreams",
-    "Sprightly Vonwacq",
-    "Talia: Kingdom of Banditry"
-  ]
-}
-,{
-  "character": "Misha",
-  "substat_weights": {
-    "CriticalChanceBase": 1.0,
-    "CriticalDamageBase": 1.0,
-    "SpeedDelta": 1.0,
-    "AttackAddedRatio": 0.75,
-    "AttackDelta": 0.75
-  },
-  "main_stats": {
-    "Body": ["CriticalChanceBase", "CriticalDamageBase"],
-    "Feet": ["SpeedDelta", "AttackAddedRatio"],
-    "Sphere": ["IceAddedRatio", "AttackAddedRatio"],
-    "Rope": ["AttackAddedRatio"]
-  },
-  "usable_sets": [
-    "Champion of Streetwise Boxing",
-    "Hunter of Glacial Forest",
-    "Messenger Traversing Hackerspace",
-    "Musketeer of Wild Wheat",
-    "The Ashblazing Grand Duke",
-    "Inert Salsotto",
-    "Rutilant Arena"
-  ]
-}
+  {
+    "character": "Misha",
+    "substat_weights": {
+      "CriticalChanceBase": 1.0,
+      "CriticalDamageBase": 1.0,
+      "SpeedDelta": 1.0,
+      "AttackAddedRatio": 0.75,
+      "AttackDelta": 0.75
+    },
+    "main_stats": {
+      "Body": ["CriticalChanceBase", "CriticalDamageBase"],
+      "Feet": ["SpeedDelta", "AttackAddedRatio"],
+      "Sphere": ["IceAddedRatio", "AttackAddedRatio"],
+      "Rope": ["AttackAddedRatio"]
+    },
+    "usable_sets": [
+      "Pioneer Diver of Dead Waters",
+      "Hunter of Glacial Forest",
+      "Musketeer of Wild Wheat",
+      "Messenger Traversing Hackerspace",
+      "Firmament Frontline: Glamoth",
+      "Rutilant Arena",
+      "Inert Salsotto",
+      "Space Sealing Station"
+    ]
+  }
 ]
