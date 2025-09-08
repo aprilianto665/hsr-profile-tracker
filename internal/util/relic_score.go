@@ -56,10 +56,10 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, sc
 	}
 
 	if isRecommended {
-		return score + 5.832
+		return FloorToDecimal(score+5.832, 1)
 	}
 
-	return score * 0.5
+	return FloorToDecimal(score*0.5, 1)
 }
 
 func contains(slice []string, item string) bool {
@@ -96,8 +96,8 @@ func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Cha
 			fmt.Println("Stat Percent", sub.Type, val, "*", FindStatCoefficient(sub.Type), "*", charWeight.SubstatWeights[sub.Type], "=", val*FindStatCoefficient(sub.Type)*charWeight.SubstatWeights[sub.Type])
 		}
 	}
-
-	totalScore = CalculateMainStatScore(r, charWeight, totalScore)
+	fmt.Println("total floor :", FloorToDecimal(totalScore, 1))
+	totalScore = CalculateMainStatScore(r, charWeight, FloorToDecimal(totalScore, 1))
 	fmt.Println("total :", totalScore)
 	return totalScore
 }

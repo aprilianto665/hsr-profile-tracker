@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	"hsr-profile-tracker/internal/model"
 )
 
@@ -21,13 +20,6 @@ func MergeAttributes(attrs, adds []model.Attribute) []model.Attribute {
 		}
 	}
 	return final
-}
-
-func FormatAttributeValue(attr model.Attribute) string {
-	if attr.Percent {
-		return fmt.Sprintf("%.1f%%", attr.Value*100)
-	}
-	return fmt.Sprintf("%d", int(attr.Value))
 }
 
 func BuildRelicSummaryOut(player model.Player, char model.Character) []model.RelicSummary {
@@ -111,11 +103,11 @@ func BuildRelicScoreOut(relic []model.RelicSummary) model.RelicScore {
 		totalScore += r.Score
 	}
 
-	averageScore := totalScore / float64(len(relic))
+	averageScore := FloorToDecimal(totalScore/6.0, 1)
 
 	return model.RelicScore{
 		Rank:         GetRelicRank(averageScore),
-		TotalScore:   totalScore,
+		TotalScore:   FloorToDecimal(totalScore, 1),
 		AverageScore: averageScore,
 	}
 }
