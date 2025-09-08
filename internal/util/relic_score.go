@@ -116,7 +116,7 @@ func GetRelicRank(score float64) string {
 		return "B"
 	case score >= 10:
 		return "C"
-	case score >= 0:
+	case score > 0:
 		return "D"
 	default:
 		return "N/A"
