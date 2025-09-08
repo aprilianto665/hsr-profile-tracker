@@ -1,16 +1,15 @@
 package util
 
 import (
-	"fmt"
 	"hsr-profile-tracker/internal/model"
 	"math"
 )
 
-func FormatAttributeValue(attr model.Attribute) string {
+func FormatAttributeValue(attr model.Attribute) float64 {
 	if attr.Percent {
-		return fmt.Sprintf("%.1f%%", attr.Value*100)
+		return FloorToDecimal(attr.Value*100, 2)
 	}
-	return fmt.Sprintf("%d", int(attr.Value))
+	return FloorToDecimal(attr.Value, 0)
 }
 
 func FloorToDecimal(value float64, decimals int) float64 {

@@ -87,9 +87,9 @@ type RelicScore struct {
 }
 
 type AttributeSummary struct {
-	Name  string `json:"name"`
-	Icon  string `json:"icon"`
-	Value string `json:"value"`
+	Name  string  `json:"name"`
+	Icon  string  `json:"icon"`
+	Value float64 `json:"value"`
 }
 
 type RelicSummary struct {
