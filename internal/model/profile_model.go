@@ -17,6 +17,7 @@ type Attribute struct {
 type Relic struct {
 	Name      string      `json:"name"`
 	Type      int         `json:"type"`
+	SetName   string      `json:"set_name"`
 	Rarity    int         `json:"rarity"`
 	Level     int         `json:"level"`
 	Icon      string      `json:"icon"`

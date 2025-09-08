@@ -50,7 +50,7 @@ func BuildRelicSummaryOut(player model.Player, char model.Character) []model.Rel
 		}
 
 		score := CalculateRelicScoreValue(r, player, char)
-		rank := GetSingleRelicRank(score)
+		rank := GetRelicRank(score)
 
 		relics = append(relics, model.RelicSummary{
 			Name:      r.Name,
@@ -102,4 +102,20 @@ func BuildFinalStatsOut(attrs, adds []model.Attribute) []model.AttributeSummary 
 		})
 	}
 	return out
+}
+
+func BuildRelicScoreOut(relic []model.RelicSummary) model.RelicScore {
+	var totalScore float64
+
+	for _, r := range relic {
+		totalScore += r.Score
+	}
+
+	averageScore := totalScore / float64(len(relic))
+
+	return model.RelicScore{
+		Rank:         GetRelicRank(averageScore),
+		TotalScore:   totalScore,
+		AverageScore: averageScore,
+	}
 }

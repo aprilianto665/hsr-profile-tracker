@@ -102,7 +102,7 @@ func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Cha
 	return totalScore
 }
 
-func GetSingleRelicRank(score float64) string {
+func GetRelicRank(score float64) string {
 	switch {
 	case score >= 40:
 		return "SSS"
