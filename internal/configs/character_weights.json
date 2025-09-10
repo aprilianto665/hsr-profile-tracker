@@ -174,7 +174,7 @@
     "main_stats": {
       "Body": ["CriticalChanceBase", "CriticalDamageBase"],
       "Feet": ["SpeedDelta", "AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Sphere": ["ThunderAddedRatio", "AttackAddedRatio"],
       "Rope": ["AttackAddedRatio"]
     },
     "usable_sets": [
@@ -259,7 +259,7 @@
     "main_stats": {
       "Body": ["CriticalChanceBase", "CriticalDamageBase"],
       "Feet": ["AttackAddedRatio", "SpeedDelta"],
-      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Sphere": ["ThunderAddedRatio", "AttackAddedRatio"],
       "Rope": ["AttackAddedRatio"]
     },
     "usable_sets": [
@@ -652,7 +652,7 @@
     "main_stats": {
       "Body": ["CriticalChanceBase", "CriticalDamageBase"],
       "Feet": ["AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio"],
+      "Sphere": ["ThunderAddedRatio"],
       "Rope": ["AttackAddedRatio"]
     },
     "usable_sets": [
@@ -850,7 +850,7 @@
         "StatusProbabilityBase"
       ],
       "Feet": ["SpeedDelta", "AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Sphere": ["ThunderAddedRatio", "AttackAddedRatio"],
       "Rope": ["AttackAddedRatio", "SPRatioBase"]
     },
     "usable_sets": [
@@ -1158,7 +1158,7 @@
     "main_stats": {
       "Body": ["CriticalDamageBase", "CriticalChanceBase"],
       "Feet": ["SpeedDelta", "AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Sphere": ["ThunderAddedRatio", "AttackAddedRatio"],
       "Rope": ["AttackAddedRatio"]
     },
     "usable_sets": [
@@ -1731,7 +1731,7 @@
     "main_stats": {
       "Body": ["CriticalDamageBase", "CriticalChanceBase"],
       "Feet": ["SpeedDelta", "AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio", "AttackAddedRatio"],
+      "Sphere": ["ThunderAddedRatio", "AttackAddedRatio"],
       "Rope": ["AttackAddedRatio"]
     },
     "usable_sets": [
@@ -1973,7 +1973,7 @@
     "main_stats": {
       "Body": ["CriticalDamageBase", "CriticalChanceBase"],
       "Feet": ["SpeedDelta", "AttackAddedRatio"],
-      "Sphere": ["LightningAddedRatio"],
+      "Sphere": ["ThunderAddedRatio"],
       "Rope": ["SPRatioBase", "AttackAddedRatio"]
     },
     "usable_sets": [

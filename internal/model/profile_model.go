@@ -40,6 +40,7 @@ type NameIcon struct {
 }
 
 type Character struct {
+	Id         string      `json:"id"`
 	Name       string      `json:"name"`
 	Portrait   string      `json:"portrait"`
 	Rarity     int         `json:"rarity"`

@@ -6,16 +6,8 @@ import (
 	"hsr-profile-tracker/internal/model"
 )
 
-func FindCharacterWeights(player model.Player, char model.Character) model.CharacterWeights {
-	if char.Name == player.Nickname {
-		trailblazer := fmt.Sprintf("Trailblazer (%s)", char.Element.Name)
-
-		result := configs.CharacterWeights[trailblazer]
-
-		return result
-	}
-
-	result := configs.CharacterWeights[char.Name]
+func FindCharacterWeights(char model.Character) model.CharacterWeights {
+	result := configs.CharacterWeights[char.Id]
 
 	return result
 }
@@ -35,6 +27,9 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, sc
 		5: "Sphere",
 		6: "Rope",
 	}
+
+	fmt.Println(r.SetName)
+	fmt.Println(r.MainAffix.Type)
 
 	slotName := slotMap[r.Type]
 	if slotName == "" {
@@ -71,8 +66,8 @@ func contains(slice []string, item string) bool {
 	return false
 }
 
-func CalculateRelicScoreValue(r model.Relic, player model.Player, char model.Character) float64 {
-	charWeight := FindCharacterWeights(player, char)
+func CalculateRelicScoreValue(r model.Relic, char model.Character) float64 {
+	charWeight := FindCharacterWeights(char)
 
 	var totalScore float64
 
@@ -114,7 +109,7 @@ func GetRelicRank(score float64) string {
 		return "A"
 	case score >= 15:
 		return "B"
-	case score >= 10:
+	case score >= 5:
 		return "C"
 	case score > 0:
 		return "D"

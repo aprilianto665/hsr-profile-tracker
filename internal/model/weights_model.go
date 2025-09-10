@@ -13,6 +13,7 @@ type MainStats struct {
 }
 
 type CharacterWeights struct {
+	Id             []string           `json:"id"`
 	Character      string             `json:"character"`
 	SubstatWeights map[string]float64 `json:"substat_weights"`
 	MainStats      MainStats          `json:"main_stats"`

@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"hsr-profile-tracker/internal/model"
 )
 
@@ -22,8 +23,10 @@ func MergeAttributes(attrs, adds []model.Attribute) []model.Attribute {
 	return final
 }
 
-func BuildRelicSummaryOut(player model.Player, char model.Character) []model.RelicSummary {
+func BuildRelicSummaryOut(char model.Character) []model.RelicSummary {
 	relics := make([]model.RelicSummary, 0, len(char.Relics))
+
+	fmt.Println(char.Name)
 
 	for _, r := range char.Relics {
 		main := model.AttributeSummary{
@@ -41,7 +44,7 @@ func BuildRelicSummaryOut(player model.Player, char model.Character) []model.Rel
 			})
 		}
 
-		score := CalculateRelicScoreValue(r, player, char)
+		score := CalculateRelicScoreValue(r, char)
 		rank := GetRelicRank(score)
 
 		relics = append(relics, model.RelicSummary{

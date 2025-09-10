@@ -24,7 +24,9 @@ func LoadCharacterWeights(path string) (map[string]model.CharacterWeights, error
 
 	result := make(map[string]model.CharacterWeights)
 	for _, char := range chars {
-		result[char.Character] = char
+		for _, id := range char.Id {
+			result[id] = char
+		}
 	}
 
 	return result, nil

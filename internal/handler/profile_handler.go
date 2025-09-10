@@ -120,7 +120,7 @@ func GetProfile(ctx *fiber.Ctx) error {
 
 		lc := util.BuildLightConeSummaryOut(c.LightCone)
 
-		relics := util.BuildRelicSummaryOut(player, c)
+		relics := util.BuildRelicSummaryOut(c)
 
 		relicSets := util.NormalizeRelicSetIcons(c.RelicSets)
 
