@@ -20,7 +20,28 @@ func FindBaseStat(stat string) float64 {
 	return configs.StatWeights.BaseStat[stat]
 }
 
-func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, score float64) float64 {
+func contains(slice []string, item string) bool {
+	for _, s := range slice {
+		if s == item {
+			return true
+		}
+	}
+	return false
+}
+
+func CheckRelicSuitableSet(r model.Relic, charWeight model.CharacterWeights) bool {
+	return contains(charWeight.UsableSets, r.SetName)
+}
+
+func CalculateFinalStatScore(r model.Relic, charWeight model.CharacterWeights, score float64) float64 {
+	penaltyMultiplier := 1.0
+
+	isRelicSetSuitable := CheckRelicSuitableSet(r, charWeight)
+
+	if !isRelicSetSuitable {
+		penaltyMultiplier -= 0.1
+	}
+
 	slotMap := map[int]string{
 		3: "Body",
 		4: "Feet",
@@ -33,7 +54,7 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, sc
 
 	slotName := slotMap[r.Type]
 	if slotName == "" {
-		return score
+		return FloorToDecimal(score*penaltyMultiplier, 1)
 	}
 
 	recommendedStats := charWeight.MainStats
@@ -51,19 +72,12 @@ func CalculateMainStatScore(r model.Relic, charWeight model.CharacterWeights, sc
 	}
 
 	if isRecommended {
-		return FloorToDecimal(score+5.832, 1)
+		return FloorToDecimal((score+5.832)*penaltyMultiplier, 1)
+	} else {
+		penaltyMultiplier -= 0.5
 	}
 
-	return FloorToDecimal(score*0.5, 1)
-}
-
-func contains(slice []string, item string) bool {
-	for _, s := range slice {
-		if s == item {
-			return true
-		}
-	}
-	return false
+	return FloorToDecimal(score*penaltyMultiplier, 1)
 }
 
 func CalculateRelicScoreValue(r model.Relic, char model.Character) float64 {
@@ -92,7 +106,7 @@ func CalculateRelicScoreValue(r model.Relic, char model.Character) float64 {
 		}
 	}
 	fmt.Println("total floor :", FloorToDecimal(totalScore, 1))
-	totalScore = CalculateMainStatScore(r, charWeight, FloorToDecimal(totalScore, 1))
+	totalScore = CalculateFinalStatScore(r, charWeight, FloorToDecimal(totalScore, 1))
 	fmt.Println("total :", totalScore)
 	return totalScore
 }
