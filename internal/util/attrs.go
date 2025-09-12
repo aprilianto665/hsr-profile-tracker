@@ -114,3 +114,46 @@ func BuildRelicScoreOut(relic []model.RelicSummary) model.RelicScore {
 		AverageScore: averageScore,
 	}
 }
+
+func BuildProfileSummaryOut(rawData model.RawData) model.ProfileSummary {
+	player := NormalizePlayerAvatar(rawData.Player)
+
+	chars := make([]model.CharacterSummary, 0, len(rawData.Characters))
+	for _, c := range rawData.Characters {
+
+		c.Path.Icon = NormalizeIconPath(c.Path.Icon)
+		c.Element.Icon = NormalizeIconPath(c.Element.Icon)
+
+		lc := BuildLightConeSummaryOut(c.LightCone)
+
+		relics := BuildRelicSummaryOut(c)
+
+		relicSets := NormalizeRelicSetIcons(c.RelicSets)
+
+		finalStats := BuildFinalStatsOut(c.Attributes, c.Additions)
+
+		relicScore := BuildRelicScoreOut(relics)
+
+		chars = append(chars, model.CharacterSummary{
+			Name:       c.Name,
+			Portrait:   NormalizeIconPath(c.Portrait),
+			Rarity:     c.Rarity,
+			Rank:       c.Rank,
+			Level:      c.Level,
+			Path:       c.Path,
+			Element:    c.Element,
+			LightCone:  lc,
+			Relics:     relics,
+			RelicSets:  relicSets,
+			FinalStats: finalStats,
+			RelicScore: &relicScore,
+		})
+	}
+
+	summary := model.ProfileSummary{
+		Player:     player,
+		Characters: chars,
+	}
+
+	return summary
+}

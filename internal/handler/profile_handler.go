@@ -2,43 +2,45 @@ package handler
 
 import (
 	"encoding/json"
-	"fmt"
-	"hsr-profile-tracker/internal/database"
 	"hsr-profile-tracker/internal/model"
+	"hsr-profile-tracker/internal/service"
 	"hsr-profile-tracker/internal/util"
-	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/redis/go-redis/v9"
 )
 
-func CheckProfile(ctx *fiber.Ctx) error {
+func GetUID(ctx *fiber.Ctx) (string, bool) {
 	uid := ctx.Params("uid")
 
 	if uid == "" {
-		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+		ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"status":  "error",
 			"message": "UID is required",
 		})
+		return "", true
 	}
 
-	if database.Rdb != nil {
-		if cachedBytes, err := database.Rdb.Get(database.Ctx, uid).Bytes(); err == nil && len(cachedBytes) > 0 {
-			return ctx.Status(fiber.StatusOK).JSON(model.CheckProfileResponse{
-				Status:  "success",
-				Message: "Profile exists",
-				Exists:  true,
-			})
-		} else if err != nil && err != redis.Nil {
-		}
+	return uid, false
+}
+
+func CheckProfile(ctx *fiber.Ctx) error {
+	uid, bad := GetUID(ctx)
+	if bad {
+		return nil
 	}
 
-	url := fmt.Sprintf("https://api.mihomo.me/sr_info_parsed/%s?lang=en", uid)
+	if _, ok := service.CacheGetSummary(uid); ok {
+		return ctx.Status(fiber.StatusOK).JSON(model.CheckProfileResponse{
+			Status:  "success",
+			Message: "Profile exists",
+			Exists:  true,
+		})
+	}
 
-	agent := fiber.Get(url).UserAgent("hsr-profile-tracker/1.0").Timeout(10 * time.Second)
+	url := service.BuildProfileURL(uid)
 
-	statusCode, _, errs := agent.Bytes()
-	if len(errs) > 0 {
+	statusCode, _, errs := service.HttpFetchProfile(url)
+	if errs != nil {
 		return ctx.Status(fiber.StatusBadGateway).JSON(model.CheckProfileResponse{
 			Status:  "error",
 			Message: "Failed to retrieve profile data",
@@ -62,36 +64,27 @@ func CheckProfile(ctx *fiber.Ctx) error {
 }
 
 func GetProfile(ctx *fiber.Ctx) error {
-	uid := ctx.Params("uid")
-	refresh := ctx.Query("refresh") == "true"
-
-	if uid == "" {
-		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"status":  "error",
-			"message": "UID is required",
-		})
+	uid, bad := GetUID(ctx)
+	if bad {
+		return nil
 	}
 
-	if !refresh && database.Rdb != nil {
-		if cachedBytes, err := database.Rdb.Get(database.Ctx, uid).Bytes(); err == nil && len(cachedBytes) > 0 {
-			var cachedSummary model.ProfileSummary
-			if err := json.Unmarshal(cachedBytes, &cachedSummary); err == nil {
-				return ctx.Status(fiber.StatusOK).JSON(model.APIProfileResponse{
-					Status:  "success",
-					Message: "Profile fetched from cache",
-					Data:    cachedSummary,
-				})
-			}
-		} else if err != nil && err != redis.Nil {
+	refresh := ctx.Query("refresh") == "true"
+
+	if !refresh {
+		if cachedSummary, ok := service.CacheGetSummary(uid); ok {
+			return ctx.Status(fiber.StatusOK).JSON(model.APIProfileResponse{
+				Status:  "success",
+				Message: "Profile fetched from cache",
+				Data:    *cachedSummary,
+			})
 		}
 	}
 
-	url := fmt.Sprintf("https://api.mihomo.me/sr_info_parsed/%s?lang=en", uid)
+	url := service.BuildProfileURL(uid)
 
-	agent := fiber.Get(url).UserAgent("hsr-profile-tracker/1.0").Timeout(10 * time.Second)
-
-	statusCode, body, errs := agent.Bytes()
-	if len(errs) > 0 {
+	statusCode, body, errs := service.HttpFetchProfile(url)
+	if errs != nil {
 		return ctx.Status(fiber.StatusBadGateway).JSON(fiber.Map{
 			"status":  "error",
 			"message": "Failed to retrieve profile data",
@@ -110,47 +103,10 @@ func GetProfile(ctx *fiber.Ctx) error {
 		})
 	}
 
-	player := util.NormalizePlayerAvatar(RawData.Player)
-
-	chars := make([]model.CharacterSummary, 0, len(RawData.Characters))
-	for _, c := range RawData.Characters {
-
-		c.Path.Icon = util.NormalizeIconPath(c.Path.Icon)
-		c.Element.Icon = util.NormalizeIconPath(c.Element.Icon)
-
-		lc := util.BuildLightConeSummaryOut(c.LightCone)
-
-		relics := util.BuildRelicSummaryOut(c)
-
-		relicSets := util.NormalizeRelicSetIcons(c.RelicSets)
-
-		finalStats := util.BuildFinalStatsOut(c.Attributes, c.Additions)
-
-		relicScore := util.BuildRelicScoreOut(relics)
-
-		chars = append(chars, model.CharacterSummary{
-			Name:       c.Name,
-			Portrait:   util.NormalizeIconPath(c.Portrait),
-			Rarity:     c.Rarity,
-			Rank:       c.Rank,
-			Level:      c.Level,
-			Path:       c.Path,
-			Element:    c.Element,
-			LightCone:  lc,
-			Relics:     relics,
-			RelicSets:  relicSets,
-			FinalStats: finalStats,
-			RelicScore: &relicScore,
-		})
-	}
-
-	summary := model.ProfileSummary{
-		Player:     player,
-		Characters: chars,
-	}
+	summary := util.BuildProfileSummaryOut(RawData)
 
 	if b, err := json.Marshal(summary); err == nil {
-		database.Rdb.Set(database.Ctx, uid, b, time.Hour)
+		service.CacheSetBytes(uid, b)
 	}
 
 	return ctx.Status(statusCode).JSON(model.APIProfileResponse{
