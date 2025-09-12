@@ -5,6 +5,7 @@ import (
 	"hsr-profile-tracker/internal/database"
 	"hsr-profile-tracker/internal/routes"
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -31,5 +32,10 @@ func main() {
 
 	routes.ProfileRoutes(app)
 
-	log.Fatal(app.Listen(":3000"))
+	port := os.Getenv("APP_PORT")
+	if port == "" {
+		port = ":3000"
+	}
+
+	log.Fatal(app.Listen(port))
 }
